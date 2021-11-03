@@ -1,6 +1,5 @@
 ﻿#include "Playerh.h"
 #include "Card.h"
-
 void chulryeok(string a, int b = 50);//문자열을 받아서 멋있게 출력하는 함수
 void honjaseonolgi();//혼자서 놀기
 void duliseonolgi();//둘이서 놀기
@@ -24,11 +23,7 @@ int main()
 		clrscr();
 
 		chulryeok("One Card Game ver 0.1 beta", 250);
-		chulryeok("Press A key");//타이틀 출력
-
-
-		char ch;
-		cin >> ch;//아무키를 기다리기
+		sleep(500);
 		
 	np3:
 
