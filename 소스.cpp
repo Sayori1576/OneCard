@@ -23,7 +23,7 @@ int main()
 		clrscr();
 
 		chulryeok("One Card Game ver 0.1 beta", 250);
-		sleep(500);
+	Sleep(500);
 		
 	np3:
 
