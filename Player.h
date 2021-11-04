@@ -7,7 +7,7 @@ class Player
 
 public:
 	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a)
-		:cardlist(b), usecard(c), name(n), atack(a)
+		:cardlist(b), usecard(c), name(n), attack(a)
 	{
 		selectcard(7);
 	}
@@ -27,8 +27,8 @@ private:
 	vector<Card>& cardlist;
 	vector<Card>& usecard;
 	string name;
-	int& atack;
-	void atackplus(vector<int>& a,int n);
+	int& attack;
+	void attackplus(vector<int>& a,int n);
 	void nomal(Card uc);
 	void cardattack(Card uc);
 	void endwork(vector<int>& a);

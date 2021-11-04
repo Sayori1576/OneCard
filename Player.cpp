@@ -1,4 +1,4 @@
-#include "Playerh.h"
+#include "Player.h"
 void Player::info()
 {
 	Card uc = usecard[usecard.size() - 1];
@@ -9,9 +9,9 @@ void Player::info()
 		cout << mycard[i].name << " ";
 	}
 	cout << endl;
-	if (atack != 0)
+	if (attack != 0)
 	{
-		cout << "현재 누적된 먹어야 할 카드 수는 " << atack << "개입니다." << endl;
+		cout << "현재 누적된 먹어야 할 카드 수는 " << attack << "개입니다." << endl;
 	}
 }
 void Player::selectcard(int num)
@@ -28,7 +28,7 @@ void Player::selectcard(int num)
 void Player::givecard()
 {
 	Card uc = usecard[usecard.size() - 1];
-	if ((uc.num == 2|| uc.num == 1||uc.kind=="J") && atack != 0)
+	if ((uc.num == 2|| uc.num == 1||uc.kind=="J") && attack != 0)
 	{
 		cardattack(uc);
 	}
@@ -37,45 +37,45 @@ void Player::givecard()
 		nomal(uc);
 	}
 }
-void Player::atackplus(vector<int>& a,int n)
+void Player::attackplus(vector<int>& a,int n)
 {
 		 if (mycard[a[n]].kind == "♠" && mycard[a[n]].num == 1)
 	{
-	atack += 5;
+	attack += 5;
 	cout << name << " 은" << mycard[a[n]].name << " 으로 공격" << endl;;
 	cout << "먹어야 할 카드 5개 누적" << endl;
 	}
 		 else if (mycard[a[n]].kind == "J" && mycard[a[n]].num == 1)
 		 {
-			 atack += 5;
+			 attack += 5;
 			 cout << name << " 은" << mycard[a[n]].name << " 으로 공격" << endl;
 			 cout << "먹어야 할 카드 5개 누적" << endl;
 		 }
 		 else if (mycard[a[n]].kind == "J" && mycard[a[n]].num == 2)
 		 {
-			 atack += 7;
+			 attack += 7;
 			 cout << name << " 은" << mycard[a[n]].name << " 으로 공격" << endl;;
 			 cout << "먹어야 할 카드 7개 누적" << endl;
 		 }
 	else if (mycard[a[n]].num == 2)
 	{
-		atack += 2;
+		attack += 2;
 		cout << name << " 은" << mycard[a[n]].name << " 으로 공격" << endl;;
 		cout << "먹어야 할 카드 2개 누적" << endl;
 	}
 
 	else if (mycard[a[n]].num == 1)
 	{
-		atack += 3;
+		attack += 3;
 		cout << name << " 은" << mycard[a[n]].name << " 으로 공격" << endl;;
 		cout << "먹어야 할 카드 3개 누적" << endl;
 	}
 	else if (mycard[a[n]].num == 3)
 		 {
-			 if (atack != 0)
+			 if (attack != 0)
 			 {
 				 cout << name << " 은 공격을 막아냈다!" << endl;
-				 atack = 0;
+				 attack = 0;
 			 }
 		 }
 	
@@ -165,11 +165,11 @@ void Player::endwork(vector<int> &a)
 	if (a.size() == 0)
 	{
 		cout << "낼 수 있는 카드가 없습니다." << endl;
-		if (atack != 0)
+		if (attack != 0)
 		{
-			cout << "카드 " << atack << " 장을 먹습니다." << endl;
-			selectcard(atack);
-			atack = 0;
+			cout << "카드 " << attack << " 장을 먹습니다." << endl;
+			selectcard(attack);
+			attack = 0;
 		}
 		else
 		{
@@ -196,7 +196,7 @@ void Player::endwork(vector<int> &a)
 			break;
 		}
 	}
-	atackplus(a, n);
+	attackplus(a, n);
 	usecard.push_back(mycard[a[n]]);
 	mycard.erase(mycard.begin() + a[n]);//추가 후 삭제
 	cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl<<endl;
