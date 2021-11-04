@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Card.cpp" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Card.h" />
     <ClInclude Include="Default.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

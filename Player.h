@@ -22,6 +22,17 @@ public:
 	{
 		return name;
 	}
+	bool iswin()
+	{
+		if (mycard.size() == 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 private:
 	vector<Card> mycard;
 	vector<Card>& cardlist;

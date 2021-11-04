@@ -1,5 +1,6 @@
 ﻿#include "Player.h"
 #include "Card.h"
+#include "Game.h"
 void chulryeok(string a, int b = 50);//문자열을 받아서 멋있게 출력하는 함수
 void honjaseonolgi();//혼자서 놀기
 void duliseonolgi();//둘이서 놀기
@@ -73,7 +74,9 @@ void honjaseonolgi()
 }
 void duliseonolgi()
 {
-	Player a(cardlist, usecard, "Player1", attack);
+	Game newgame({ "Player1", "Player2","Player3"});
+		newgame.start();
+	/*Player a(cardlist, usecard, "Player1", attack);
 	Player b(cardlist, usecard, "Player2", attack);
 	for (;;)
 	{
@@ -102,7 +105,7 @@ void duliseonolgi()
 			break;
 		}
 	
-	}
+	}*/
 }
 
 void init()
