@@ -1,16 +1,16 @@
 #pragma once
 #include "Player.h"
 #include "Card.h"
-class Game
+class Game//게임 클래스
 {
 public:
-	Game(const vector<string>& a);
-	void start();
+	Game(const vector<string>& a);//생성자
+	void start();//게임 시작
 private:
     
-	vector<Card> cardlist;//카드패
-	vector<Card> usecard;
-	int attack;
-	vector<Player> Players;
-	void init();
+	vector<Card> cardlist;//전체 카드패
+	vector<Card> usecard;//낸 카드패
+	int attack;//공격값
+	vector<Player> Players;//플레이어들
+	void init();//전체 카드패를 초기화하는 함수
 };

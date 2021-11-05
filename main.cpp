@@ -3,7 +3,7 @@
 #include "Game.h"
 void chulryeok(string a, int b = 50);//문자열을 받아서 멋있게 출력하는 함수
 void honjaseonolgi();//혼자서 놀기
-void duliseonolgi();//둘이서 놀기
+void duliseonolgi();//여럿이서 놀기
 void init();
 vector<Card> cardlist;//카드패
 vector<Card> usecard;
@@ -15,8 +15,7 @@ int main()
 	init();
 
 	
-	for (;;)
-	{
+	
 		
 		chulryeok("made by jellanie", 100);
 		Sleep(500);
@@ -24,13 +23,14 @@ int main()
 
 		chulryeok("One Card Game ver 0.1 beta", 250);
 	Sleep(500);
-		
+	for (;;)
+	{
 	np3:
 
 		clrscr();
 	
 		cout << "1.혼자서 놀기" << endl;
-		cout << "2.둘이서 놀기" << endl;//매뉴 출력
+		cout << "2.여럿이서 놀기" << endl;//매뉴 출력
 		char menu;
 		cin >> menu;
 		cout << menu << endl;
@@ -40,7 +40,7 @@ int main()
 			cout << "혼자서 놀기는 아직 개발 중입니다" << endl;
 			break;
 		case '2'://2번을 선택했다면
-			cout << "둘이서 놀기를 선택하셨습니다." << endl;
+			cout << "여럿이서 놀기를 선택하셨습니다." << endl;
 			
 			clrscr();
 			duliseonolgi();
@@ -72,10 +72,33 @@ void honjaseonolgi()
 {
 
 }
-void duliseonolgi()
+void duliseonolgi()//여럿이서 놀기 함수
 {
-	Game newgame({ "Player1", "Player2","Player3"});
-		newgame.start();
+	int num;//플레이어 수
+	while (1)
+	{
+		cout << "몇 명이서 할 건가요?" << endl;
+		cin >> num;//입력 받기
+		if (num >= 7)
+		{
+			cout << "7명 이상은 이 게임을 할 수 없어요." << endl;
+		}
+		else
+		{
+			break;
+		}
+	}
+	vector<string> name(num);//이름 목록
+	for (int i = 0; i < num; i++)
+	{
+		cout << "이름을 입력해 주세요" << endl;
+		string temp;//이름
+		cin >> temp;//입력 받기
+		name[i] = temp;//목록에 추가
+	}
+	clrscr();
+	Game newgame(name);//새로운 게임 생성
+		newgame.start();//게임 시작
 	/*Player a(cardlist, usecard, "Player1", attack);
 	Player b(cardlist, usecard, "Player2", attack);
 	for (;;)
