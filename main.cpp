@@ -73,12 +73,18 @@ void honjaseonolgi()
 }
 void duliseonolgi()//여럿이서 놀기 함수
 {
+	cout << "몇 명이서 할 건가요?" << endl;
 	int num;//플레이어 수
 	while (1)
 	{
-		cout << "몇 명이서 할 건가요?" << endl;
+
 		cin >> num;//입력 받기
-		if (num >= 7)
+		if (!cin)
+		{
+			cinnum();
+
+		}
+		else if ((num >=7)||(num<=1))
 		{
 			cout << "7명 이상은 이 게임을 할 수 없어요." << endl;
 		}

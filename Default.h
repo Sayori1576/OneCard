@@ -13,7 +13,20 @@
 #include <string>
 #pragma once
 using namespace std;
+inline void cinnum()
+{
 
+		cin.clear();
+
+		cin.ignore(INT_MAX, '\n');
+		
+			cout << "잘못된 값을 입력하셨습니다. 숫자만 입력해주세요.\n";
+
+
+		
+
+
+}
 #define randomize() srand((unsigned)time(NULL))	
 #define random(n) (rand() % (n))	
 inline void Sleep(clock_t milliseconds) {

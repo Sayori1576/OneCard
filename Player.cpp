@@ -40,40 +40,15 @@ void Player::givecard()//Ä«µå ³»´Â ÇÔ¼ö
 	}
 	endwork(a);
 }
-void Player::attackplus(vector<int>& a,int n)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é °ø°ÝÇÏ´Â ÇÔ¼ö
+void Player::attackplus(Card C)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é °ø°ÝÇÏ´Â ÇÔ¼ö
 {
-		 if (mycard[a[n]].kind == "¢¼" && mycard[a[n]].num == 1)//½ºÆäÀÌµå A¸¦ ³Â´Ù¸é
+	if (C.type == ATTACK)
 	{
-	attack += spadeA;//´©Àû °ø°Ý°ª¿¡ ½ºÆäÀÌµå AÀÇ °ø°Ý·Â Ãß°¡
-	cout << name << " Àº" << mycard[a[n]].name << " À¸·Î °ø°Ý" << endl;;
-	cout << "¸Ô¾î¾ß ÇÒ Ä«µå "<<spadeA<<"°³ ´©Àû" << endl;//Á¤º¸ Ãâ·Â
-	}
-		 else if (mycard[a[n]].kind == "J" && mycard[a[n]].num == 1)//ÀÏ¹Ý Á¶Ä¿¸¦ ³Â´Ù¸é
-		 {
-			 attack += blackj;//ÀÏ¹Ý Á¶Ä¿ÀÇ °ø°Ý·Â Ãß°¡
-			 cout << name << " Àº" << mycard[a[n]].name << " À¸·Î °ø°Ý" << endl;
-			 cout << "¸Ô¾î¾ß ÇÒ Ä«µå "<<blackj<<"°³ ´©Àû" << endl;//Á¤º¸ Ãâ·Â
+		attack += C.attackval;
+		cout << name << " Àº" << C.name << " À¸·Î °ø°Ý" << endl;
+		cout << "¸Ô¾î¾ß ÇÒ Ä«µå " << C.attackval << "°³ ´©Àû" << endl;//Á¤º¸ Ãâ·Â
 		 }
-		 else if (mycard[a[n]].kind == "J" && mycard[a[n]].num == 2)//Ä®¶ó Á¶Ä¿¸¦ ³Â´Ù¸é
-		 {
-			 attack += colorj;//Ä®¶ó Á¶Ä¿ÀÇ °ø°Ý·Â Ãß°¡
-			 cout << name << " Àº" << mycard[a[n]].name << " À¸·Î °ø°Ý" << endl;;
-			 cout << "¸Ô¾î¾ß ÇÒ Ä«µå "<<colorj<<"°³ ´©Àû" << endl;//Á¤º¸ Ãâ·Â
-		 }
-	else if (mycard[a[n]].num == 2)//2¸¦ ³Â´Ù¸é
-	{
-		attack += two;//2ÀÇ °ø°Ý·Â Ãß°¡
-		cout << name << " Àº" << mycard[a[n]].name << " À¸·Î °ø°Ý" << endl;;
-		cout << "¸Ô¾î¾ß ÇÒ Ä«µå "<<two<<"°³ ´©Àû" << endl;//Á¤º¸ Ãâ·Â
-	}
-
-	else if (mycard[a[n]].num == 1)//A¸¦ ³Â´Ù¸é
-	{
-		attack += aA;//AÀÇ °ø°Ý·Â Ãß°¡
-		cout << name << " Àº" << mycard[a[n]].name << " À¸·Î °ø°Ý" << endl;
-		cout << "¸Ô¾î¾ß ÇÒ Ä«µå "<<aA<<"°³ ´©Àû" << endl;//Á¤º¸ Ãâ·Â
-	}
-	else if (mycard[a[n]].num == 3)//¹æ¾î Ä«µå¸¦ ³Â´Ù¸é
+	else if (C.type==DEFENSE)//¹æ¾î Ä«µå¸¦ ³Â´Ù¸é
 		 {
 			 if (attack != 0)//ÇöÀç °ø°Ý ÁßÀÌ¶ó¸é
 			 {
@@ -196,7 +171,12 @@ void Player::endwork(vector<int> &a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 	{
 	
 		cin >> n;//¹øÈ£ ÀÔ·Â¹Þ±â
-		if (n < 0 || n >= a.size())//Àß¸ø ÀÔ·ÂÇß´Ù¸é
+		if (!cin)
+		{
+			cinnum();
+
+		}
+		else if (n < 0 || n >= a.size())//Àß¸ø ÀÔ·ÂÇß´Ù¸é
 		{
 			cout << "Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù" << endl;//Àß¸ø ÀÔ·ÂÇß´Ù°í Ãâ·Â
 		}
@@ -205,7 +185,7 @@ void Player::endwork(vector<int> &a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 			break;
 		}
 	}
-	attackplus(a, n);//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
+	attackplus(mycard[a[n]]);//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
 	usecard.push_back(mycard[a[n]]);
 	mycard.erase(mycard.begin() + a[n]);//Ä«µå¸¦ ³½´Ù.
 	cout << "ÇöÀç " << name << "ÀÇ Ä«µå °³¼ö´Â " << mycard.size() << "°³ÀÔ´Ï´Ù." << endl<<endl;//Á¤º¸ Ãâ·Â

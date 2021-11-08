@@ -1,30 +1,80 @@
 #include "Game.h"
 void Game::init()//전체 카드패 초기화 함수
 {
-	for (int i = 1; i < 14; i++)
+	cardlist.push_back({ "♠",1,ATTACK,2,3 });
+	cardlist.push_back({ "♥",1,ATTACK,2,3 });
+	cardlist.push_back({ "◆",1,ATTACK,2,3 });
+	cardlist.push_back({ "♣",1,ATTACK,2,3 });
+
+	cardlist.push_back({ "♠",2,ATTACK,1,2 });
+	cardlist.push_back({ "♥",2,ATTACK,1,2 });
+	cardlist.push_back({ "◆",2,ATTACK,1,2 });
+	cardlist.push_back({ "♣",2,ATTACK,1,2 });
+
+	cardlist.push_back({ "♠",3,DEFENSE});
+	cardlist.push_back({ "♥",3,DEFENSE });
+	cardlist.push_back({ "◆",3,DEFENSE });
+	cardlist.push_back({ "♣",3,DEFENSE });
+	for (int i = 4; i < 7; i++)
 	{
 		cardlist.push_back({ "♠",i });
 	}//카드패에 스페이드 카드 추가
-	for (int i = 1; i < 14; i++)
+	for (int i = 4; i < 7; i++)
 	{
 		cardlist.push_back({ "♥",i });
 	}//카드패에 하트 카드 추가
-	for (int i = 1; i < 14; i++)
+	for (int i = 4; i < 7; i++)
 	{
 		cardlist.push_back({ "◆",i });
 	}//카드패에 다이아몬드 카드 추가
-	for (int i = 1; i < 14; i++)
+	for (int i = 4; i < 7; i++)
 	{
 		cardlist.push_back({ "♣",i });
 	}//카드패에 클럽 카드 추가
-	cardlist.push_back({ "J",1 });
-	cardlist.push_back({ "J",2 });//카드패에 조커 추가
+	cardlist.push_back({ "♠",7,CCHANGE });
+	cardlist.push_back({ "♥",7,CCHANGE });
+	cardlist.push_back({ "◆",7,CCHANGE });
+	cardlist.push_back({ "♣",7,CCHANGE });
+	for (int i = 8; i < 11; i++)
+	{
+		cardlist.push_back({ "♠",i });
+	}//카드패에 스페이드 카드 추가
+	for (int i = 8; i < 11; i++)
+	{
+		cardlist.push_back({ "♥",i });
+	}//카드패에 하트 카드 추가
+	for (int i = 8; i < 11; i++)
+	{
+		cardlist.push_back({ "◆",i });
+	}//카드패에 다이아몬드 카드 추가
+	for (int i = 8; i < 11; i++)
+	{
+		cardlist.push_back({ "♣",i });
+	}//카드패에 클럽 카드 추가
+	cardlist.push_back({ "♠",11,JUMP });
+	cardlist.push_back({ "♥",11,JUMP });
+	cardlist.push_back({ "◆",11,JUMP });
+	cardlist.push_back({ "♣",11,JUMP });
+
+	cardlist.push_back({ "♠",12,REVERSE });
+	cardlist.push_back({ "♥",12,REVERSE });
+	cardlist.push_back({ "◆",12,REVERSE });
+	cardlist.push_back({ "♣",12,REVERSE });
+
+	cardlist.push_back({ "♠",13,ONEMORE });
+	cardlist.push_back({ "♥",13,ONEMORE});
+	cardlist.push_back({ "◆",13,ONEMORE });
+	cardlist.push_back({ "♣",13,ONEMORE });
+
+	cardlist.push_back({ "J",1,ATTACK,4,5});
+	cardlist.push_back({ "J",2,ATTACK,5,7 });//카드패에 조커 추가
 	randomize();
 	//카드패에 카드 하나 올리기
+	cout << "카드 개수 " << cardlist.size();
 	int a = random(cardlist.size());//랜덤 번호 뽑기
 	usecard.push_back(cardlist[a]);//추가하기
 	cardlist.erase(cardlist.begin() + a);//삭제하기
-//	cout << "카드 개수 " << cardlist.size();
+
 }
 Game::Game(const vector<string>& a)//플레이어 이름들을 받는 생성자
 {
