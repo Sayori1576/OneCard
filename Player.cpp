@@ -29,14 +29,16 @@ void Player::selectcard(int num)//카드 뽑는 함수
 void Player::givecard()//카드 내는 함수
 {
 	Card uc = usecard[usecard.size() - 1];//현재 낸 카드패 맨 위에 있는 카드
+	vector<int> a;
 	if ((uc.num == 2|| uc.num == 1||uc.kind=="J") && attack != 0)//공격받고 있다면
 	{
-		cardattack(uc);//공격받았을 때 뽑을 수 있는 카드 고르기
+		a=cardattack(uc);//공격받았을 때 뽑을 수 있는 카드 고르기
 	}
 	else//아니면
 	{
-		nomal(uc);//뽑을 수 있는 카드 고르기
+		a=nomal(uc);//뽑을 수 있는 카드 고르기
 	}
+	endwork(a);
 }
 void Player::attackplus(vector<int>& a,int n)//공격 카드를 냈다면 공격하는 함수
 {
@@ -81,7 +83,7 @@ void Player::attackplus(vector<int>& a,int n)//공격 카드를 냈다면 공격하는 함수
 		 }
 	
 }
-void Player::nomal(Card uc)//일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
+vector<int> Player::nomal(Card uc)//일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
 {
 	vector<int> a;//뽑을 수 있는 번호들 목록
 	for (int i = 0; i < mycard.size(); i++)
@@ -95,9 +97,9 @@ void Player::nomal(Card uc)//일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
 			a.push_back(i);
 		}
 	}// 뽑을 수 있는 카드 찾기
-	endwork(a);//출력하고 뽑게 함
+	return a;
 }
-void Player::cardattack(Card uc)//공격받았을 경우 뽑을 수 있는 카드를 고르는 함수
+vector<int> Player::cardattack(Card uc)//공격받았을 경우 뽑을 수 있는 카드를 고르는 함수
 {
 		cout << "상대방의 공격 감지" << endl;//정보 출력
 		vector<int> a;//뽑을 수 있는 번호들 목록
@@ -155,7 +157,7 @@ void Player::cardattack(Card uc)//공격받았을 경우 뽑을 수 있는 카드를 고르는 함�
 		}
 			
 		}// 뽑을 수 있는 카드 찾기
-		endwork(a);
+		return a;
 }
 void Player::endwork(vector<int> &a)//뽑을 수 있는 카드를 출력하고 고르게 하는 함수
 {

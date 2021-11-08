@@ -22,7 +22,7 @@ inline void Sleep(clock_t milliseconds) {
 
 	while ((clock() - start) * 1000 / CLOCKS_PER_SEC < milliseconds);
 }
-#ifdef WIN32
+#ifdef _WIN32
 
 
 
@@ -35,7 +35,7 @@ inline void clrscr()
 
 
 #else
-void clrscr()
+inline void clrscr()
 {
 	system("clear");
 }
