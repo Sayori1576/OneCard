@@ -16,7 +16,7 @@ public:
 	void info();//정보 출력 함수
 	void givecard();//카드 내기 함수
 	void selectcard(int num);//카드 가져오기 함수
-	int size()//크기 반환 함수
+	size_t size()//크기 반환 함수
 	{
 		return mycard.size();
 	}
