@@ -17,12 +17,11 @@ int main()
 	
 	
 		
-		chulryeok("made by jellanie", 100);
-		Sleep(500);
-		clrscr();
+	cout << "Made by Sayori1576"<<endl;
 
-		chulryeok("One Card Game ver 0.1 beta", 250);
-	Sleep(500);
+
+	cout << "Onecard Game"<<endl;
+
 	for (;;)
 	{
 	np3:

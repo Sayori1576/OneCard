@@ -1,5 +1,6 @@
 #include "Card.h"
-Card::Card(const string& k, int n) : kind(k), num(n)//생성자 함수
+Card::Card(const string& k, int n, tp t, int im, int at)
+: kind(k), num(n), type(t), importance(im), attackval(at)//생성자 함수
 {
 	string temp = to_string(n);//일반적인 경우 숫자는 그대로 표시
 	switch (n)
@@ -21,7 +22,8 @@ Card::Card(const string& k, int n) : kind(k), num(n)//생성자 함수
 	name = k + temp;//이름 대입
 
 }
-Card::Card(const string& na)//생성자 함수
+Card::Card(const string& na, tp t, int im, int at)
+:type(t), importance(im), attackval(at)//생성자 함수
 {
 	name = na;
 	kind = na[0];//종류 대입
