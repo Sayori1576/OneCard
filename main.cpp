@@ -26,7 +26,7 @@ int main()
 	{
 	np3:
 
-		clrscr();
+
 	
 		cout << "1.혼자서 놀기" << endl;
 		cout << "2.여럿이서 놀기" << endl;//매뉴 출력
