@@ -1,7 +1,7 @@
 #pragma once
 #include "Default.h"
 
-enum tp{NOMAL,ATTACK,JUMP,REVERSE,DEFENSE,CCHANGE,ONEMORE};
+enum tp{NOMAL,ATTACK,JUMP,REVERSE,DEFENSE,CCHANGE,ONEMORE};//상태 열거형
 struct Card //카드 구조체
 {
 	Card(const string& k, int num, tp t = NOMAL,int im=0, int at=0);//종류, 숫자를 받아 초기화하는 생성자

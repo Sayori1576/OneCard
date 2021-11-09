@@ -40,7 +40,7 @@ void Player::givecard()//Ä«µå ³»´Â ÇÔ¼ö
 	}
 	endwork(a);
 }
-void Player::attackplus(Card C)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é °ø°ÝÇÏ´Â ÇÔ¼ö
+bool Player::attackplus(Card C)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é °ø°ÝÇÏ´Â ÇÔ¼ö
 {
 	if (C.type == ATTACK)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é
 	{
@@ -58,13 +58,14 @@ void Player::attackplus(Card C)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é °ø°ÝÇÏ´Â ÇÔ¼ö
 		 }
 	else if (C.type == ONEMORE)//ÇÑ¹ø ´õ ³»´Â Ä«µå¸¦ ³Â´Ù¸é
 	{
-		Sleep(2000);
+		Sleep(3000);
 		clrscr();//È­¸é ÃÊ±âÈ­
 		cout << "Ä«µå¸¦ ÇÑ ¹ø ´õ ³À´Ï´Ù." << endl;
 		info();//Á¤º¸ Ãâ·Â
 		givecard();//ÇÑ¹ø  ´õ ³»±â
+		return true;
 	}
-	
+	return false;
 }
 vector<int> Player::nomal(Card uc)//ÀÏ¹ÝÀûÀÎ °æ¿ì¿¡ »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
 {
@@ -100,7 +101,7 @@ vector<int> Player::cardattack(Card uc)//°ø°Ý¹Þ¾ÒÀ» °æ¿ì »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸
 		}// »ÌÀ» ¼ö ÀÖ´Â Ä«µå Ã£±â
 		return a;
 }
-void Player::endwork(vector<int> &a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â ÇÔ¼ö
+void Player::endwork(vector<int>& a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â ÇÔ¼ö
 {
 	if (a.size() == 0)//³¾ ¼ö ÀÖ´Â Ä«µå°¡ ¾ø´Ù¸é
 	{
@@ -125,8 +126,8 @@ void Player::endwork(vector<int> &a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 	int i;
 	for (i = 0; i < a.size(); i++)
 	{
-		cout <<left << i << "." << mycard[a[i]].name << "  ";
-		if (i % 7 == 0&&i!=0)
+		cout << left << i << "." << mycard[a[i]].name << "  ";
+		if (i % 7 == 0 && i != 0)
 		{
 			cout << endl;
 		}
@@ -134,9 +135,9 @@ void Player::endwork(vector<int> &a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 
 	cout << "¹øÈ£ ÀÔ·Â" << endl;
 	int n;
-	while(1)
+	while (1)
 	{
-	
+
 		cin >> n;//¹øÈ£ ÀÔ·Â¹Þ±â
 		if (!cin)
 		{
@@ -155,11 +156,16 @@ void Player::endwork(vector<int> &a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 	//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
 	usecard.push_back(mycard[a[n]]);
 	mycard.erase(mycard.begin() + a[n]);//Ä«µå¸¦ ³½´Ù.
-
-	attackplus(usecard[usecard.size() - 1]);//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
 	cout << "ÇöÀç " << name << "ÀÇ Ä«µå °³¼ö´Â " << mycard.size() << "°³ÀÔ´Ï´Ù." << endl;//Á¤º¸ Ãâ·Â
-	Sleep(3000);//±â´Ù¸®±â
-	clrscr();//È­¸é ÃÊ±âÈ­
+	bool k = !attackplus(usecard[usecard.size() - 1]);
+	if (k)//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
+	{
+		
+			Sleep(3000);//±â´Ù¸®±â
+	}
+
+			clrscr();//È­¸é ÃÊ±âÈ­
+	
 	return;
 
 }
