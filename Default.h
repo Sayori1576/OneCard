@@ -11,6 +11,7 @@
 #include <cmath>
 #include <sstream>
 #include <string>
+#include <iomanip>
 #pragma once
 using namespace std;
 inline void cinnum()

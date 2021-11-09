@@ -7,11 +7,11 @@ class Player
 
 public:
 
-	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a, int tw = 2, int A = 3, int Sa = 5, int Bj = 5, int Cj = 7)//생성자
-		:cardlist(b), usecard(c), name(n), attack(a), two(tw), aA(A), spadeA(Sa), blackj(Bj), colorj(Cj)//초기화
+	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a)//생성자
+		:cardlist(b), usecard(c), name(n), attack(a)//초기화
 	{
 	
-		selectcard(7);//7장 뽑기
+		selectcard(15);//7장 뽑기
 	}
 	void info();//정보 출력 함수
 	void givecard();//카드 내기 함수
@@ -61,9 +61,5 @@ private:
 			}
 		}
 	}
-	int two;//2의 공격력
-	int aA;//A의 공격력
-	int spadeA;//스페이드A의 공격력
-	int blackj;//흑백조커의 공격력
-	int colorj;//칼라조커의 공격력
+	
 };

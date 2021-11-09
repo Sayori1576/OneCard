@@ -1,7 +1,7 @@
 #include "Game.h"
 void Game::init()//전체 카드패 초기화 함수
 {
-	cardlist.push_back({ "♠",1,ATTACK,2,3 });
+	cardlist.push_back({ "♠",1,ATTACK,3,5 });
 	cardlist.push_back({ "♥",1,ATTACK,2,3 });
 	cardlist.push_back({ "◆",1,ATTACK,2,3 });
 	cardlist.push_back({ "♣",1,ATTACK,2,3 });
