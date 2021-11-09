@@ -157,14 +157,13 @@ void Player::endwork(vector<int>& a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 	usecard.push_back(mycard[a[n]]);
 	mycard.erase(mycard.begin() + a[n]);//Ä«µå¸¦ ³½´Ù.
 	cout << "ÇöÀç " << name << "ÀÇ Ä«µå °³¼ö´Â " << mycard.size() << "°³ÀÔ´Ï´Ù." << endl;//Á¤º¸ Ãâ·Â
-	bool k = !attackplus(usecard[usecard.size() - 1]);
-	if (k)//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
+	bool k = !attackplus(usecard[usecard.size() - 1]);//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
+	if (k)//ÇÑ¹ø ´õ ³»´Â Ä«µå¸¦ ³»Áö ¾Ê¾Ò´Ù¸é
 	{
 		
 			Sleep(3000);//±â´Ù¸®±â
-	}
-
 			clrscr();//È­¸é ÃÊ±âÈ­
+	}
 	
 	return;
 
