@@ -1,6 +1,7 @@
 #include "Player.h"
 void Player::info()//Á¤º¸ Ãâ·Â ÇÔ¼ö
 {
+	sort(mycard.begin(), mycard.end());//Á¤·ÄÇÏ±â
 	Card uc = usecard[usecard.size() - 1];//³½ Ä«µåÆÐ ¸Ç À§¿¡ ÀÖ´Â Ä«µå
 	cout << "ÇöÀç " << name << "ÀÇ Ä«µå °³¼ö´Â " << mycard.size() << "°³ÀÔ´Ï´Ù." << endl;//Ä«µå °³¼ö Ãâ·Â
 	cout << uc.name << "ÀÌ Ä«µåÆÐÀÇ ¸Ç À§¿¡ ÀÖ½À´Ï´Ù."<<endl;//Ä«µåÆÐ ¸Ç À§¿¡ ÀÖ´Â Ä«µå Ãâ·Â
@@ -38,7 +39,7 @@ void Player::givecard()//Ä«µå ³»´Â ÇÔ¼ö
 	{
 		a=nomal(uc);//»ÌÀ» ¼ö ÀÖ´Â Ä«µå °í¸£±â
 	}
-	endwork(a);
+	endwork(a);//»ÌÀº Ä«µå¸¦ Ãâ·ÂÇÏ°í ÀÔ·Â ¹Þ±â
 }
 bool Player::attackplus(Card C)//°ø°Ý Ä«µå¸¦ ³Â´Ù¸é °ø°ÝÇÏ´Â ÇÔ¼ö
 {
@@ -91,7 +92,7 @@ vector<int> Player::cardattack(Card uc)//°ø°Ý¹Þ¾ÒÀ» °æ¿ì »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸
 		{
 			if (mycard[i].kind == uc.kind || mycard[i].num == uc.num || mycard[i].kind == uc.kind)//Á¾·ù³ª ¼ýÀÚ°¡ °°Àºµ¥
 			{
-				if ((mycard[i].type == ATTACK && mycard[i].importance >= uc.importance) || mycard[i].type == DEFENSE)
+				if ((mycard[i].type == ATTACK && mycard[i].importance >= uc.importance) || mycard[i].type == DEFENSE)//¹æ¾î Ä«µåÀÌ°Å³ª °ø°Ý Ä«µåÀÌ¸é¼­ Áß¿äµµ°¡ ³ô´Ù¸é
 				 {
 					a.push_back(i);
 			}
@@ -158,7 +159,7 @@ void Player::endwork(vector<int>& a)//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â Ç
 	mycard.erase(mycard.begin() + a[n]);//Ä«µå¸¦ ³½´Ù.
 	cout << "ÇöÀç " << name << "ÀÇ Ä«µå °³¼ö´Â " << mycard.size() << "°³ÀÔ´Ï´Ù." << endl;//Á¤º¸ Ãâ·Â
 	bool k = !attackplus(usecard[usecard.size() - 1]);//³½ Ä«µå°¡ Æ¯¼ö Ä«µåÀÎ °æ¿ì Ã³¸®
-	if (k)//ÇÑ¹ø ´õ ³»´Â Ä«µå¸¦ ³»Áö ¾Ê¾Ò´Ù¸é
+	if (k)//ÇÑ¹ø ´õ ³»´Â Ä«µå¸¦ ³»Áö ¾Ê¾Ò´Ù¸é   
 	{
 		
 			Sleep(3000);//±â´Ù¸®±â
