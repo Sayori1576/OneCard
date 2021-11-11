@@ -70,7 +70,7 @@ void Game::init()//전체 카드패 초기화 함수
 	cardlist.push_back({ "J",2,ATTACK,5,7 });//카드패에 조커 추가
 	randomize();
 	//카드패에 카드 하나 올리기
-	cout << "카드 개수 " << cardlist.size();
+	cout << "카드 개수 " << cardlist.size()<<endl;
 	int a = random(cardlist.size());//랜덤 번호 뽑기
 	usecard.push_back(cardlist[a]);//추가하기
 	cardlist.erase(cardlist.begin() + a);//삭제하기
@@ -99,7 +99,7 @@ void Game::start()//게임을 하는 함수
 			break;
 		}
 		i++;//1씩 증가
-		/*cout << "카드 개수1:" << cardlist.size();
-		cout << "카드 개수2:" << Players[0].size() + Players[1].size() + Players[2].size() + usecard.size() + cardlist.size();*/
+		cout << "카드 개수1:" << cardlist.size()<<endl;
+		cout << "카드 개수2:" << Players[0].size() + Players[1].size() +usecard.size() + cardlist.size()<<endl;
 	}
 }

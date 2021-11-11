@@ -26,21 +26,21 @@ Card::Card(const string& na, tp t, int im, int at)
 :type(t), importance(im), attackval(at)//생성자 함수
 {
 	name = na;
-	kind = na[0];//종류 대입
-	int temp = na[1] - '0';//일반적인 경우 그냥 둠
-	if (temp == 'A')
+	kind=na.substr(0,2);//종류 대입
+	int temp = na[2] - '0';//일반적인 경우 그냥 둠
+	if (na[2] == 'A')
 	{
 		temp = 1;
 	}
-	else if (temp == 'J')
+	else if (na[2] == 'J')
 	{
 		temp = 11;
 	}
-	else if (temp == 'Q')
+	else if (na[2] == 'Q')
 	{
 		temp = 12;
 	}
-	else if (temp == 'K')
+	else if (na[2] == 'K')
 	{
 		temp = 13;
 	}
