@@ -12,7 +12,7 @@ struct Card //카드 구조체
 	string name;//카드의 이름
 	int importance;//중요도(높을수록 좋음)
 	int attackval;//공격값
-	bool operator<(Card rhs)//비교 연산자
+	bool operator<(const Card& rhs)//비교 연산자
 	{
 		if (kind != rhs.kind)
 		{

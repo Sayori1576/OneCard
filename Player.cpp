@@ -49,7 +49,7 @@ void Player::givecard()//Ä«µå ³»´Â ÇÔ¼ö
 	}
 	endwork(a);//»ÌÀº Ä«µå¸¦ Ãâ·ÂÇÏ°í ÀÔ·Â ¹Ş±â
 }
-bool Player::attackplus(Card C)//°ø°İ Ä«µå¸¦ ³Â´Ù¸é °ø°İÇÏ´Â ÇÔ¼ö
+bool Player::attackplus(const Card& C)//°ø°İ Ä«µå¸¦ ³Â´Ù¸é °ø°İÇÏ´Â ÇÔ¼ö
 {
 	if (C.type == ATTACK)//°ø°İ Ä«µå¸¦ ³Â´Ù¸é
 	{
@@ -117,7 +117,7 @@ bool Player::attackplus(Card C)//°ø°İ Ä«µå¸¦ ³Â´Ù¸é °ø°İÇÏ´Â ÇÔ¼ö
 	}
 	return false;
 }
-vector<int> Player::nomal(Card uc)//ÀÏ¹İÀûÀÎ °æ¿ì¿¡ »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
+vector<int> Player::nomal(const Card& uc)//ÀÏ¹İÀûÀÎ °æ¿ì¿¡ »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
 {
 	vector<int> a;//»ÌÀ» ¼ö ÀÖ´Â ¹øÈ£µé ¸ñ·Ï
 	for (int i = 0; i < mycard.size(); i++)
@@ -137,17 +137,16 @@ vector<int> Player::nomal(Card uc)//ÀÏ¹İÀûÀÎ °æ¿ì¿¡ »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â Ç
 	}// »ÌÀ» ¼ö ÀÖ´Â Ä«µå Ã£±â
 	return a;
 }
-vector<int> Player::cardattack(Card uc)//°ø°İ¹Ş¾ÒÀ» °æ¿ì »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
+vector<int> Player::cardattack(const Card& uc)//°ø°İ¹Ş¾ÒÀ» °æ¿ì »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
 {
 	cout << "»ó´ë¹æÀÇ °ø°İ °¨Áö" << endl;//Á¤º¸ Ãâ·Â
 	vector<int> a;//»ÌÀ» ¼ö ÀÖ´Â ¹øÈ£µé ¸ñ·Ï
 	for (int i = 0; i < mycard.size(); i++)
 	{
-		if (mycard[i].kind == uc.kind || mycard[i].num == uc.num || mycard[i].kind == uc.kind)//Á¾·ù³ª ¼ıÀÚ°¡ °°Àºµ¥
+		if (mycard[i].kind == uc.kind || mycard[i].num == uc.num || mycard[i].kind == uc.kind||mycard[i].kind == "J")//Á¾·ù³ª ¼ıÀÚ°¡ °°°Å³ª Á¶Ä¿ Ä«µåÀÎµ¥
 		{
-			if (((mycard[i].type == ATTACK||mycard[i].kind == "J") && mycard[i].importance >= uc.importance) || mycard[i].type == DEFENSE)
-				//¹æ¾î Ä«µåÀÌ°Å³ª °ø°İ Ä«µåÀÌ¸é¼­ Áß¿äµµ°¡ ³ô°Å³ª Á¶Ä¿ Ä«µåÀÌ¶ó¸é
-			{
+			if (((mycard[i].type == ATTACK) && mycard[i].importance >= uc.importance) || mycard[i].type == DEFENSE)
+				//¹æ¾î Ä«µåÀÌ°Å³ª °ø°İ Ä«µåÀÌ¸é¼­ Áß¿äµµ°¡ ³ô´Ù¸é
 				a.push_back(i);
 			}
 
