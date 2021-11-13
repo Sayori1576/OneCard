@@ -114,6 +114,14 @@ bool Player::attackplus(const Card& C)
 		}
 		cout << "문양을 바꿉니다" << endl;
 	}
+	else if (C.type == JUMP)
+	{
+		isjmp = 1;
+	}
+	else if (C.type == REVERSE)
+	{
+		isreverse = !(isreverse);
+	}
 	return false;
 }
 vector<int> Player::nomal(const Card& uc)

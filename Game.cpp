@@ -81,7 +81,7 @@ Game::Game(const vector<string>& a)
 	init();
 	for (auto i = 0; i < a.size(); i++)
 	{
-		Players.push_back({ cardlist, usecard, a[i], attack });
+		Players.push_back({ cardlist, usecard, a[i], attack,isjmp,isreverse});
 	}
 }
 void Game::start()
@@ -89,7 +89,25 @@ void Game::start()
 	int i = 0;
 	while (1)
 	{
-		int xi = i % Players.size();
+		if (isjmp)
+		{
+			cout << "점프합니다" << endl;
+			isjmp = 0;
+			i++;
+			Sleep(3000);
+			clrscr();
+			continue;
+		}
+		int xi;
+		if (isreverse)
+		{
+			int s = static_cast<int>(Players.size());
+			xi = abs(((i % s)-(s+1)));
+		}
+		else
+		{
+			 xi= i % Players.size();
+		}
 		Players[xi].info();
 		Players[xi].givecard();
 		if (Players[xi].iswin())
