@@ -89,24 +89,25 @@ void Game::start()
 	int i = 0;
 	while (1)
 	{
+		
+		int xi;
+		if (isreverse)
+		{
+			int s = static_cast<int>(Players.size());
+			xi = abs((i % s)-(s-1));
+		}
+		else
+		{
+			 xi= i % Players.size();
+		}
 		if (isjmp)
 		{
-			cout << "점프합니다" << endl;
+			cout<<Players[xi].getname() << " 점프합니다" << endl;
 			isjmp = 0;
 			i++;
 			Sleep(3000);
 			clrscr();
 			continue;
-		}
-		int xi;
-		if (isreverse)
-		{
-			int s = static_cast<int>(Players.size());
-			xi = abs(((i % s)-(s+1)));
-		}
-		else
-		{
-			 xi= i % Players.size();
 		}
 		Players[xi].info();
 		Players[xi].givecard();
