@@ -7,8 +7,8 @@ class Player
 
 public:
 
-	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a,bool& ij, bool& ir)//생성자
-		:cardlist(b), usecard(c), name(n), attack(a),isjmp(ij),isreverse(ir)//초기화
+	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a,bool& ij, bool& ir,bool& o)//생성자
+		:cardlist(b), usecard(c), name(n), attack(a),isjmp(ij),isreverse(ir),one(o)//초기화
 	{
 	
 		selectcard(7);//7장 뽑기
@@ -44,6 +44,7 @@ private:
 	bool& isjmp;//점프 여부
 	bool& isreverse;//반전 여부
 	bool attackplus(const Card& C);//공격 카드를 냈다면 공격하는 함수
+	bool& one;
 	vector<int> nomal(const Card& uc);//일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
 	vector<int> cardattack(const Card& uc);//공격받았을 경우 뽑을 수 있는 카드를 고르는 함수
 	void endwork(vector<int>& a);//뽑을 수 있는 카드를 출력하고 고르게 하는 함수
