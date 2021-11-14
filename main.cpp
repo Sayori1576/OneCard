@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 #include "Card.h"
 #include "Game.h"
+#include "Menulib.h"
 void chulryeok(string a, int b = 50);//문자열을 받아서 멋있게 출력하는 함수
 void honjaseonolgi();//혼자서 놀기
 void duliseonolgi();//여럿이서 놀기
@@ -21,41 +22,11 @@ int main()
 
 
 	cout << "Onecard Game"<<endl;
-
-	for (;;)
-	{
-	np3:
-
-
-	
-		cout << "1.혼자서 놀기" << endl;
-		cout << "2.여럿이서 놀기" << endl;//매뉴 출력
-		char menu;
-		cin >> menu;
-		cout << menu << endl;
-		switch (menu)
-		{
-		case '1'://1번을 선택했다면
-			cout << "혼자서 놀기는 아직 개발 중입니다" << endl;
-			break;
-		case '2'://2번을 선택했다면
-			cout << "여럿이서 놀기를 선택하셨습니다." << endl;
-			
-			clrscr();
-			duliseonolgi();
-
-			break;
-		default://아니라면
-			cout << "선택은 1 또는 2만 가능합니다." << endl;
-
-
-			Sleep(500);
-			goto np3;
-			break;
-		}
+	Menu Start( {{ "혼자서 놀기", honjaseonolgi }, {"둘이서 놀기",duliseonolgi} });
+	Start.run();
 	   
 		clrscr();
-	}
+	
 }
 
 void chulryeok(string a,int b)
@@ -69,10 +40,12 @@ void chulryeok(string a,int b)
 }
 void honjaseonolgi()
 {
-
+	clrscr();
+	cout << "개발 중입니다" << endl;
 }
 void duliseonolgi()//여럿이서 놀기 함수
 {
+	clrscr();
 	cout << "몇 명이서 할 건가요?" << endl;
 	int num;//플레이어 수
 	while (1)

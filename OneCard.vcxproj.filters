@@ -41,5 +41,8 @@
     <ClInclude Include="Game.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Menulib.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
