@@ -87,8 +87,9 @@ Game::Game(const vector<string>& a)
 void Game::start()
 {
 	int i = 0;
+	
 	while (1)
-	{
+	{	
 		
 		int xi;
 		if (isreverse)
@@ -109,7 +110,7 @@ void Game::start()
 			clrscr();
 			continue;
 		}
-		Players[xi].info();
+  		Players[xi].info();
 		Players[xi].givecard();
 		if (Players[xi].iswin())
 		{
@@ -117,7 +118,9 @@ void Game::start()
 			Sleep(3000);
 			break;
 		}
-		i++;
+
+			i++;
+		
 		cout << "카드 개수1:" << cardlist.size() << endl;
 		cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;
 	}
