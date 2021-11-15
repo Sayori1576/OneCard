@@ -15,5 +15,5 @@ private:
 	void init();//전체 카드패를 초기화하는 함수
 	bool isjmp;//점프 여부
 	bool isreverse;//반전 여부
-	bool one;
+
 };

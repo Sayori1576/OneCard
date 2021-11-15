@@ -81,31 +81,42 @@ Game::Game(const vector<string>& a)
 	init();
 	for (auto i = 0; i < a.size(); i++)
 	{
-		Players.push_back({ cardlist, usecard, a[i], attack,isjmp,isreverse,one});
+		Players.push_back({ cardlist, usecard, a[i], attack,isjmp,isreverse});
 	}
 }
 void Game::start()
 {
-	int i = 0;
+	int xi = 0;
 	
 	while (1)
 	{	
 		
-		int xi;
-		if (isreverse)
-		{
-			int s = static_cast<int>(Players.size());
-			xi = abs((i % s)-(s-1));
-		}
-		else
-		{
-			 xi= i % Players.size();
-		}
 		if (isjmp)
 		{
 			cout<<Players[xi].getname() << " 점프합니다" << endl;
 			isjmp = 0;
-			i++;
+			if (isreverse)
+			{
+				if (xi == 0)
+				{
+					xi = static_cast<int>(Players.size()) - 1;
+				}
+				else
+				{
+					xi--;
+				}
+			}
+			else
+			{
+				if (xi == static_cast<int>(Players.size()) - 1)
+				{
+					xi = 0;
+				}
+				else
+				{
+					xi++;
+				}
+			}
 			Sleep(3000);
 			clrscr();
 			continue;
@@ -118,13 +129,27 @@ void Game::start()
 			Sleep(3000);
 			break;
 		}
-		if (one)
+		if (isreverse)
 		{
-			one = 0;
+			if (xi == 0)
+			{
+				xi = static_cast<int>(Players.size()) - 1;
+			}
+			else
+			{
+				xi--;
+			}
 		}
 		else
 		{
-			i++;
+			if (xi == static_cast<int>(Players.size()) - 1)
+			{
+				xi = 0;
+			}
+			else
+			{
+				xi++;
+			}
 		}
 		cout << "카드 개수1:" << cardlist.size() << endl;
 		cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;

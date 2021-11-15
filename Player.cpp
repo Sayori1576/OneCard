@@ -121,7 +121,7 @@ bool Player::attackplus(const Card& C)
 	else if (C.type == REVERSE)
 	{
 		isreverse = !(isreverse);
-		one = 1;
+
 	}
 	return false;
 }
