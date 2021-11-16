@@ -39,7 +39,7 @@ void Player::selectcard(int num)
 void Player::givecard()
 {
 	Card uc = usecard[usecard.size() - 1];
-	vector<int> a;
+	pair<vector<int>,bool> a;
 	if ((uc.type == ATTACK) && attack != 0)
 	{
 		a = cardattack(uc);
@@ -48,7 +48,7 @@ void Player::givecard()
 	{
 		a = nomal(uc);
 	}
-	endwork(a);
+	endwork(a.first,a.second);
 }
 bool Player::attackplus(const Card& C)
 {
@@ -125,9 +125,10 @@ bool Player::attackplus(const Card& C)
 	}
 	return false;
 }
-vector<int> Player::nomal(const Card& uc)
+pair<vector<int>,bool> Player::nomal(const Card& uc)
 {
 	vector<int> a;
+	bool isint=0;
 	for (int i = 0; i < mycard.size(); i++)
 	{
 		if (uc.kind == "J")
@@ -142,10 +143,14 @@ vector<int> Player::nomal(const Card& uc)
 		{
 			a.push_back(i);
 		}
+		if (mycard[i].type == ONEMORE&&mycard.size()==1)
+		{
+			isint = 1;
+		}
 	}
-	return a;
+	return make_pair(a,isint);
 }
-vector<int> Player::cardattack(const Card& uc)
+pair<vector<int>,bool> Player::cardattack(const Card& uc)
 {
 	cout << "상대방의 공격 감지" << endl;
 	vector<int> a;
@@ -157,28 +162,31 @@ vector<int> Player::cardattack(const Card& uc)
 				a.push_back(i);
 		}
 	}
-	return a;
+	return make_pair(a,1);
 }
-void Player::endwork(vector<int>& a)
+void Player::endwork(vector<int>& a,bool cancel)
 {
-	if (a.size() == 0)
+	auto cardmeokgi = [&]() {if (attack != 0)
 	{
-		cout << "낼 수 있는 카드가 없습니다." << endl;
-		if (attack != 0)
-		{
-			cout << "카드 " << attack << " 장을 먹습니다." << endl;
-			selectcard(attack);
-			attack = 0;
-		}
-		else
-		{
-			selectcard(1);
-		}
-		cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl << endl;
-		Sleep(3000);
-		clrscr();
-		return;
+		cout << "카드 " << attack << " 장을 먹습니다." << endl;
+		selectcard(attack);
+		attack = 0;
 	}
+	else
+	{
+		selectcard(1);
+	}
+	cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl << endl;
+	Sleep(3000);
+	clrscr();
+	};
+		if (a.size() == 0)
+		{
+
+			cout << "낼 수 있는 카드가 없습니다." << endl;
+			cardmeokgi();
+			return;
+		}
 	cout << "뽑을 수 있는 카드" << endl;
 	int i;
 	for (i = 0; i < a.size(); i++)
@@ -189,8 +197,14 @@ void Player::endwork(vector<int>& a)
 			cout << endl;
 		}
 	}
+	if (cancel)
+	{
+		cout << i << ".취소" << endl;
+	}
+	
 	cout << "번호 입력" << endl;
 	int n;
+
 	while (1)
 	{
 
@@ -198,6 +212,12 @@ void Player::endwork(vector<int>& a)
 		if (!cin)
 		{
 			cinnum();
+		}
+		else if (cancel&& n == a.size())
+		{
+			cout << "카드 내기를 포기합니다." << endl;
+				cardmeokgi();
+				return;
 		}
 		else if (n < 0 || n >= a.size())
 		{
@@ -207,7 +227,7 @@ void Player::endwork(vector<int>& a)
 		{
 			cout << "낼 수 없습니다" << endl;
 		}
-
+		
 		else
 		{
 			break;
