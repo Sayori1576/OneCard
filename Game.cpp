@@ -1,6 +1,6 @@
 #include "Game.h"
 
-void Game::init()
+void Game::init(size_t t)
 {
 	cardlist.push_back({ "¢¼", 1, ATTACK, 3, 5 });
 	cardlist.push_back({ "¢¾", 1, ATTACK, 2, 3 });
@@ -52,16 +52,34 @@ void Game::init()
 	{
 		cardlist.push_back({ "¢À", i });
 	}
-	cardlist.push_back({ "¢¼", 11, JUMP });
-	cardlist.push_back({ "¢¾", 11, JUMP });
-	cardlist.push_back({ "¡ß", 11, JUMP });
-	cardlist.push_back({ "¢À", 11, JUMP });
-
-	cardlist.push_back({ "¢¼", 12, REVERSE });
-	cardlist.push_back({ "¢¾", 12, REVERSE });
-	cardlist.push_back({ "¡ß", 12, REVERSE });
-	cardlist.push_back({ "¢À", 12, REVERSE });
-
+	if (t == 2)
+	{
+		cardlist.push_back({ "¢¼", 11, ONEMORE });
+		cardlist.push_back({ "¢¾", 11, ONEMORE});
+		cardlist.push_back({ "¡ß", 11, ONEMORE });
+		cardlist.push_back({ "¢À", 11, ONEMORE });
+	}
+	else
+	{
+		cardlist.push_back({ "¢¼", 11, JUMP });
+		cardlist.push_back({ "¢¾", 11, JUMP });
+		cardlist.push_back({ "¡ß", 11, JUMP });
+		cardlist.push_back({ "¢À", 11, JUMP });
+	}
+	if (t == 2)
+	{
+		cardlist.push_back({ "¢¼", 12, ONEMORE });
+		cardlist.push_back({ "¢¾", 12, ONEMORE });
+		cardlist.push_back({ "¡ß", 12, ONEMORE });
+		cardlist.push_back({ "¢À", 12, ONEMORE });
+	}
+	else
+	{
+		cardlist.push_back({ "¢¼", 12, REVERSE });
+		cardlist.push_back({ "¢¾", 12, REVERSE });
+		cardlist.push_back({ "¡ß", 12, REVERSE });
+		cardlist.push_back({ "¢À", 12, REVERSE });
+	}
 	cardlist.push_back({ "¢¼", 13, ONEMORE });
 	cardlist.push_back({ "¢¾", 13, ONEMORE });
 	cardlist.push_back({ "¡ß", 13, ONEMORE });
@@ -78,11 +96,12 @@ void Game::init()
 Game::Game(const vector<string>& a)
 {
 
-	init();
+	init(a.size());
 	for (auto i = 0; i < a.size(); i++)
 	{
 		Players.push_back({ cardlist, usecard, a[i], attack,isjmp,isreverse});
 	}
+
 }
 void Game::start()
 {

@@ -147,7 +147,7 @@ pair<vector<int>,bool> Player::nomal(const Card& uc)
 	
 	
 	}
-	auto cnt = [](auto& m, tp a) {return (m.type == a ); };
+	auto cnt = [uc=uc](auto& m, tp a) {return (m.type == a&&(m.kind==uc.kind||m.num==uc.num||m.kind=="J")); };
 	
 	for (int i = 0; i < a.size(); i++)
 	{
