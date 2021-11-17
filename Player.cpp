@@ -142,9 +142,24 @@ pair<vector<int>,bool> Player::nomal(const Card& uc)
 		else if (mycard[i].kind == uc.kind || mycard[i].num == uc.num || mycard[i].kind == "J")
 		{
 			a.push_back(i);
+
 		}
-		if (mycard[i].type == ONEMORE&&mycard.size()==1)
+	
+	
+	}
+	auto cnt = [](auto& m, tp a) {return (m.type == a ); };
+	
+	for (int i = 0; i < a.size(); i++)
+	{
+		cout << cnt(mycard[a[i]], ONEMORE) << " " << cnt(mycard[i], ATTACK)<<" "<<a.size()<<endl;
+
+		if (mycard[a[i]].type == ONEMORE && (static_cast<size_t>(count_if(mycard.begin(), mycard.end(), [&cnt](auto& m) {return cnt(m, ONEMORE); })) == a.size()))
 		{
+			isint = 1;
+		}
+	else if (mycard[a[i]].type == ATTACK&& (static_cast<size_t>(count_if(mycard.begin(), mycard.end(), [&cnt](auto&m) {return cnt(m, ATTACK); })) == a.size()))
+		{
+				
 			isint = 1;
 		}
 	}

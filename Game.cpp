@@ -89,47 +89,10 @@ void Game::start()
 	int xi = 0;
 	
 	while (1)
-	{	
-		
-		if (isjmp)
-		{
-			cout<<Players[xi].getname() << " 점프합니다" << endl;
-			isjmp = 0;
-			if (isreverse)
-			{
-				if (xi == 0)
-				{
-					xi = static_cast<int>(Players.size()) - 1;
-				}
-				else
-				{
-					xi--;
-				}
-			}
-			else
-			{
-				if (xi == static_cast<int>(Players.size()) - 1)
-				{
-					xi = 0;
-				}
-				else
-				{
-					xi++;
-				}
-			}
-			Sleep(3000);
-			clrscr();
-			continue;
-		}
-  		Players[xi].info();
-		Players[xi].givecard();
-		if (Players[xi].iswin())
-		{
-			cout << Players[xi].getname() << " 승리" << endl;
-			Sleep(3000);
-			break;
-		}
-		if (isreverse)
+	{
+		cout << "카드 개수1:" << cardlist.size() << endl;
+		cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;
+		auto iplus = [&]() {	if (isreverse)
 		{
 			if (xi == 0)
 			{
@@ -150,8 +113,25 @@ void Game::start()
 			{
 				xi++;
 			}
+		}};
+		if (isjmp)
+		{
+			cout<<Players[xi].getname() << " 점프합니다" << endl;
+			isjmp = 0;
+			iplus();
+			Sleep(3000);
+			clrscr();
+			continue;
 		}
-		cout << "카드 개수1:" << cardlist.size() << endl;
-		cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;
+  		Players[xi].info();
+		Players[xi].givecard();
+		if (Players[xi].iswin())
+		{
+			cout << Players[xi].getname() << " 승리" << endl;
+			Sleep(3000);
+			break;
+		}
+		iplus();
+
 	}
 }
