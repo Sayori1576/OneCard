@@ -23,8 +23,19 @@ int main()
 
 	cout << "Onecard Game"<<endl;
 	Menu Start( {{ "혼자서 놀기", honjaseonolgi }, {"둘이서 놀기",duliseonolgi} });
-	Start.run();
-	   
+	while (1)
+	{
+		Start.run();
+		cout << "게임을 끝내고 싶으시다면 Q를 누르시오." << endl;
+		string temp;
+		cin >> temp;
+		if (temp == "q" || temp == "Q")
+		{
+			cout << "게임을 나갑니다." << endl;
+				Sleep(3000);
+				break;
+		}
+	}
 		clrscr();
 	
 }
