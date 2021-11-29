@@ -149,20 +149,15 @@ pair<vector<int>,bool> Player::nomal(const Card& uc)
 	}
 	auto cnt = [uc=uc](auto& m, tp a) {return (m.type == a&&(m.kind==uc.kind||m.num==uc.num||m.kind=="J")); };
 	
-	for (int i = 0; i < a.size(); i++)
-	{
-		cout << cnt(mycard[a[i]], ONEMORE) << " " << cnt(mycard[i], ATTACK)<<" "<<a.size()<<endl;
 
-		if (mycard[a[i]].type == ONEMORE && (static_cast<size_t>(count_if(mycard.begin(), mycard.end(), [&cnt](auto& m) {return cnt(m, ONEMORE); })) == a.size()))
+
+		if (((static_cast<size_t>(count_if(mycard.begin(), mycard.end(), [&cnt](auto& m) {return cnt(m, ATTACK); })))+(static_cast<size_t>(count_if(mycard.begin(), mycard.end(), [&cnt](auto& m) {return cnt(m, ONEMORE); })))) == a.size())
 		{
 			isint = 1;
 		}
-	else if (mycard[a[i]].type == ATTACK&& (static_cast<size_t>(count_if(mycard.begin(), mycard.end(), [&cnt](auto&m) {return cnt(m, ATTACK); })) == a.size()))
-		{
-				
-			isint = 1;
-		}
-	}
+	
+	
+	
 	return make_pair(a,isint);
 }
 pair<vector<int>,bool> Player::cardattack(const Card& uc)

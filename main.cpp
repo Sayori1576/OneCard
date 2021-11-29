@@ -26,7 +26,7 @@ int main()
 	while (1)
 	{
 		Start.run();
-		cout << "게임을 끝내고 싶으시다면 Q를 누르시오." << endl;
+		cout << "게임을 끝내고 싶으시다면 Q를 누르시오. 아니라면 아무 키나 누르시오." << endl;
 		string temp;
 		cin >> temp;
 		if (temp == "q" || temp == "Q")
