@@ -93,7 +93,7 @@ void Game::init(size_t t)
 	usecard.push_back(cardlist[a]);
 	cardlist.erase(cardlist.begin() + a);
 }
-Game::Game(const vector<string>& a)
+Game::Game(const vector<string>& a):attack(0)
 {
 
 	init(a.size());
@@ -147,6 +147,17 @@ void Game::start()
 		if (Players[xi].iswin())
 		{
 			cout << Players[xi].getname() << " 승리" << endl;
+			cout << "점수 목록" << endl;
+			vector<pair<string, int>> temp;
+			for (auto& x : Players)
+			{
+				temp.push_back({ x.getname(),x.getscore() });
+			}
+			sort(temp.begin(), temp.end(), [](auto& x, auto& y) {return x.second > y.second; });
+			for (auto& x : temp)
+			{
+				cout << x.first << "    " << x.second << endl;
+			}
 			Sleep(3000);
 			break;
 		}

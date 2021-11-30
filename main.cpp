@@ -35,6 +35,7 @@ int main()
 				Sleep(3000);
 				break;
 		}
+		clrscr();
 	}
 		clrscr();
 	
@@ -122,23 +123,4 @@ void duliseonolgi()//여럿이서 놀기 함수
 
 void init()
 {
-	for (int i = 1; i < 14; i++)
-	{
-		cardlist.push_back({ "♠",i });
-	}//카드패에 스페이드 카드 추가
-	for (int i = 1; i < 14; i++)
-	{
-		cardlist.push_back({ "♥",i });
-	}//카드패에 하트 카드 추가
-	for (int i = 1; i < 14; i++)
-	{
-		cardlist.push_back({ "◆",i });
-	}//카드패에 다이아몬드 카드 추가
-	for (int i = 1; i < 14; i++)
-	{
-		cardlist.push_back({ "♣",i });
-	}//카드패에 클럽 카드 추가
-	cardlist.push_back({ "J",1 });
-	cardlist.push_back({ "J",2 });//카드패에 조커 추가
-	usecard.push_back({ "♣",3 });
 }

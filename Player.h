@@ -7,11 +7,11 @@ class Player
 
 public:
 
-	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a,bool& ij, bool& ir)//생성자
-		:cardlist(b), usecard(c), name(n), attack(a),isjmp(ij),isreverse(ir)//초기화
+	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a, bool& ij, bool& ir)//생성자
+		:cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir),score(0)//초기화
 	{
-	
-		selectcard(7);//7장 뽑기
+
+		selectcard(2);//7장 뽑기
 	}
 	void info();//정보 출력 함수
 	void givecard();//카드 내기 함수
@@ -28,12 +28,17 @@ public:
 	{
 		if (mycard.size() == 0)//내 패에 카드가 없다면
 		{
+			score += 500;
 			return 1;
 		}
 		else
 		{
 			return 0;//아니라면
 		}
+	}
+	int getscore() const
+	{
+		return score;
 	}
 private:
 	vector<Card> mycard;//내 카드 패
@@ -47,6 +52,7 @@ private:
 	pair<vector<int>,bool> nomal(const Card& uc);//일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
 	pair<vector<int>,bool> cardattack(const Card& uc);//공격받았을 경우 뽑을 수 있는 카드를 고르는 함수
 	void endwork(vector<int>& a,bool cancel);//뽑을 수 있는 카드를 출력하고 고르게 하는 함수
+	int score;//점수
 	void fillcard()//카드 뽑는 곳의 카드가 없다면 낸 곳에서 가져옴
 	{
 		if (cardlist.size() == 0)//카드 뽑는 곳의 카드가 없다면
