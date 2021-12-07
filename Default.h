@@ -13,6 +13,7 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <climits>
 #pragma once
 using namespace std;
 inline void cinnum()
