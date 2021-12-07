@@ -93,7 +93,7 @@ void Game::init(size_t t)
 	usecard.push_back(cardlist[a]);
 	cardlist.erase(cardlist.begin() + a);
 }
-Game::Game(const vector<string>& a):attack(0)
+Game::Game(const vector<string>& a):attack(0), isjmp(0), isreverse(0)
 {
 
 	init(a.size());
