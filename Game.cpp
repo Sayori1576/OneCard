@@ -2,93 +2,93 @@
 
 void Game::init(size_t t)
 {
-	cardlist.push_back({ "¢¼", 1, ATTACK, 3, 5 });
-	cardlist.push_back({ "¢¾", 1, ATTACK, 2, 3 });
-	cardlist.push_back({ "¡ß", 1, ATTACK, 2, 3 });
-	cardlist.push_back({ "¢À", 1, ATTACK, 2, 3 });
+	cardlist.push_back({ "â™ ", 1, ATTACK, 3, 5 });
+	cardlist.push_back({ "â™¥", 1, ATTACK, 2, 3 });
+	cardlist.push_back({ "â—†", 1, ATTACK, 2, 3 });
+	cardlist.push_back({ "â™£", 1, ATTACK, 2, 3 });
 
-	cardlist.push_back({ "¢¼", 2, ATTACK, 1, 2 });
-	cardlist.push_back({ "¢¾", 2, ATTACK, 1, 2 });
-	cardlist.push_back({ "¡ß", 2, ATTACK, 1, 2 });
-	cardlist.push_back({ "¢À", 2, ATTACK, 1, 2 });
+	cardlist.push_back({ "â™ ", 2, ATTACK, 1, 2 });
+	cardlist.push_back({ "â™¥", 2, ATTACK, 1, 2 });
+	cardlist.push_back({ "â—†", 2, ATTACK, 1, 2 });
+	cardlist.push_back({ "â™£", 2, ATTACK, 1, 2 });
 
-	cardlist.push_back({ "¢¼", 3, DEFENSE });
-	cardlist.push_back({ "¢¾", 3, DEFENSE });
-	cardlist.push_back({ "¡ß", 3, DEFENSE });
-	cardlist.push_back({ "¢À", 3, DEFENSE });
+	cardlist.push_back({ "â™ ", 3, DEFENSE });
+	cardlist.push_back({ "â™¥", 3, DEFENSE });
+	cardlist.push_back({ "â—†", 3, DEFENSE });
+	cardlist.push_back({ "â™£", 3, DEFENSE });
 	for (int i = 4; i < 7; i++)
 	{
-		cardlist.push_back({ "¢¼", i });
-	}
-	for (int i = 4; i < 7; i++)
-	{
-		cardlist.push_back({ "¢¾", i });
+		cardlist.push_back({ "â™ ", i });
 	}
 	for (int i = 4; i < 7; i++)
 	{
-		cardlist.push_back({ "¡ß", i });
+		cardlist.push_back({ "â™¥", i });
 	}
 	for (int i = 4; i < 7; i++)
 	{
-		cardlist.push_back({ "¢À", i });
+		cardlist.push_back({ "â—†", i });
 	}
-	cardlist.push_back({ "¢¼", 7, CCHANGE });
-	cardlist.push_back({ "¢¾", 7, CCHANGE });
-	cardlist.push_back({ "¡ß", 7, CCHANGE });
-	cardlist.push_back({ "¢À", 7, CCHANGE });
+	for (int i = 4; i < 7; i++)
+	{
+		cardlist.push_back({ "â™£", i });
+	}
+	cardlist.push_back({ "â™ ", 7, CCHANGE });
+	cardlist.push_back({ "â™¥", 7, CCHANGE });
+	cardlist.push_back({ "â—†", 7, CCHANGE });
+	cardlist.push_back({ "â™£", 7, CCHANGE });
 	for (int i = 8; i < 11; i++)
 	{
-		cardlist.push_back({ "¢¼", i });
-	}
-	for (int i = 8; i < 11; i++)
-	{
-		cardlist.push_back({ "¢¾", i });
-	}
-	for (int i = 8; i < 11; i++)
-	{
-		cardlist.push_back({ "¡ß", i });
+		cardlist.push_back({ "â™ ", i });
 	}
 	for (int i = 8; i < 11; i++)
 	{
-		cardlist.push_back({ "¢À", i });
+		cardlist.push_back({ "â™¥", i });
+	}
+	for (int i = 8; i < 11; i++)
+	{
+		cardlist.push_back({ "â—†", i });
+	}
+	for (int i = 8; i < 11; i++)
+	{
+		cardlist.push_back({ "â™£", i });
 	}
 	if (t == 2)
 	{
-		cardlist.push_back({ "¢¼", 11, ONEMORE });
-		cardlist.push_back({ "¢¾", 11, ONEMORE});
-		cardlist.push_back({ "¡ß", 11, ONEMORE });
-		cardlist.push_back({ "¢À", 11, ONEMORE });
+		cardlist.push_back({ "â™ ", 11, ONEMORE });
+		cardlist.push_back({ "â™¥", 11, ONEMORE});
+		cardlist.push_back({ "â—†", 11, ONEMORE });
+		cardlist.push_back({ "â™£", 11, ONEMORE });
 	}
 	else
 	{
-		cardlist.push_back({ "¢¼", 11, JUMP });
-		cardlist.push_back({ "¢¾", 11, JUMP });
-		cardlist.push_back({ "¡ß", 11, JUMP });
-		cardlist.push_back({ "¢À", 11, JUMP });
+		cardlist.push_back({ "â™ ", 11, JUMP });
+		cardlist.push_back({ "â™¥", 11, JUMP });
+		cardlist.push_back({ "â—†", 11, JUMP });
+		cardlist.push_back({ "â™£", 11, JUMP });
 	}
 	if (t == 2)
 	{
-		cardlist.push_back({ "¢¼", 12, ONEMORE });
-		cardlist.push_back({ "¢¾", 12, ONEMORE });
-		cardlist.push_back({ "¡ß", 12, ONEMORE });
-		cardlist.push_back({ "¢À", 12, ONEMORE });
+		cardlist.push_back({ "â™ ", 12, ONEMORE });
+		cardlist.push_back({ "â™¥", 12, ONEMORE });
+		cardlist.push_back({ "â—†", 12, ONEMORE });
+		cardlist.push_back({ "â™£", 12, ONEMORE });
 	}
 	else
 	{
-		cardlist.push_back({ "¢¼", 12, REVERSE });
-		cardlist.push_back({ "¢¾", 12, REVERSE });
-		cardlist.push_back({ "¡ß", 12, REVERSE });
-		cardlist.push_back({ "¢À", 12, REVERSE });
+		cardlist.push_back({ "â™ ", 12, REVERSE });
+		cardlist.push_back({ "â™¥", 12, REVERSE });
+		cardlist.push_back({ "â—†", 12, REVERSE });
+		cardlist.push_back({ "â™£", 12, REVERSE });
 	}
-	cardlist.push_back({ "¢¼", 13, ONEMORE });
-	cardlist.push_back({ "¢¾", 13, ONEMORE });
-	cardlist.push_back({ "¡ß", 13, ONEMORE });
-	cardlist.push_back({ "¢À", 13, ONEMORE });
+	cardlist.push_back({ "â™ ", 13, ONEMORE });
+	cardlist.push_back({ "â™¥", 13, ONEMORE });
+	cardlist.push_back({ "â—†", 13, ONEMORE });
+	cardlist.push_back({ "â™£", 13, ONEMORE });
 
 	cardlist.push_back({ "J", 1, ATTACK, 4, 5 });
 	cardlist.push_back({ "J", 2, ATTACK, 5, 7 });
 	randomize();
-	cout << "Ä«µå °³¼ö " << cardlist.size() << endl;
+	cout << "ì¹´ë“œ ê°œìˆ˜ " << cardlist.size() << endl;
 	int a = random(cardlist.size());
 	usecard.push_back(cardlist[a]);
 	cardlist.erase(cardlist.begin() + a);
@@ -109,8 +109,8 @@ void Game::start()
 	
 	while (1)
 	{
-		cout << "Ä«µå °³¼ö1:" << cardlist.size() << endl;
-		cout << "Ä«µå °³¼ö2:" << usecard.size() + cardlist.size() << endl;
+		cout << "ì¹´ë“œ ê°œìˆ˜1:" << cardlist.size() << endl;
+		cout << "ì¹´ë“œ ê°œìˆ˜2:" << usecard.size() + cardlist.size() << endl;
 		auto iplus = [&]() {	if (isreverse)
 		{
 			if (xi == 0)
@@ -135,7 +135,7 @@ void Game::start()
 		}};
 		if (isjmp)
 		{
-			cout<<Players[xi].getname() << " Á¡ÇÁÇÕ´Ï´Ù" << endl;
+			cout<<Players[xi].getname() << " ì í”„í•©ë‹ˆë‹¤" << endl;
 			isjmp = 0;
 			iplus();
 			Sleep(3000);
@@ -146,8 +146,8 @@ void Game::start()
 		Players[xi].givecard();
 		if (Players[xi].iswin())
 		{
-			cout << Players[xi].getname() << " ½Â¸®" << endl;
-			cout << "Á¡¼ö ¸ñ·Ï" << endl;
+			cout << Players[xi].getname() << " ìŠ¹ë¦¬" << endl;
+			cout << "ì ìˆ˜ ëª©ë¡" << endl;
 			vector<pair<string, int>> temp;
 			for (auto& x : Players)
 			{

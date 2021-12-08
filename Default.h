@@ -23,7 +23,7 @@ inline void cinnum()
 
 		cin.ignore(INT_MAX, '\n');
 		
-			cout << "Àß¸øµÈ °ªÀ» ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ¼ýÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n";
+			cout << "ìž˜ëª»ëœ ê°’ì„ ìž…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ìˆ«ìžë§Œ ìž…ë ¥í•´ì£¼ì„¸ìš”.\n";
 
 
 		
@@ -42,7 +42,7 @@ inline void Sleep(clock_t milliseconds) {
 
 
 
-// È­¸éÀ» ¸ðµÎ Áö¿î´Ù.
+// í™”ë©´ì„ ëª¨ë‘ ì§€ìš´ë‹¤.
 inline void clrscr()
 {
 	system("cls");

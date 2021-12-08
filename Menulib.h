@@ -4,25 +4,25 @@
 #include <functional>
 #include <string>
 using namespace std;
-struct menuItem//¸Ş´º ¾ÆÀÌÅÛ
+struct menuItem//ë©”ë‰´ ì•„ì´í…œ
 {
-	string text;//ÅØ½ºÆ®
-	function<void(void)> func;//°í¸¦ ¶§ ÀÛµ¿µÇ´Â ÇÔ¼ö
-	menuItem(const string& t, const function<void(void)>& f)//»ı¼ºÀÚ
+	string text;//í…ìŠ¤íŠ¸
+	function<void(void)> func;//ê³ ë¥¼ ë•Œ ì‘ë™ë˜ëŠ” í•¨ìˆ˜
+	menuItem(const string& t, const function<void(void)>& f)//ìƒì„±ì
 		:text(t),func(f)
 	{
 
 	}
 };
-class Menu//¸Ş´º
+class Menu//ë©”ë‰´
 {
 public:
-	Menu(const vector<menuItem>& i)//»ı¼ºÀÚ
+	Menu(const vector<menuItem>& i)//ìƒì„±ì
 		:items(i)
 	{
 		
 	}
-	void run()//ÀÛµ¿ ÇÔ¼ö
+	void run()//ì‘ë™ í•¨ìˆ˜
 	{
 		for (int i = 0; i < items.size(); i++)
 		{
@@ -35,7 +35,7 @@ public:
 			cin >> num;
 			if (num < 0 || num > items.size())
 			{
-				cout << "Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+				cout << "ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 
 			}
 			else if (!cin)

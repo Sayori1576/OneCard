@@ -7,33 +7,33 @@ class Player
 
 public:
 
-	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a, bool& ij, bool& ir)//»ı¼ºÀÚ
-		:cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir),score(0)//ÃÊ±âÈ­
+	Player(vector<Card>& b, vector<Card>& c, const string& n, int& a, bool& ij, bool& ir)//ìƒì„±ì
+		:cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir),score(0)//ì´ˆê¸°í™”
 	{
 
-		selectcard(2);//7Àå »Ì±â
+		selectcard(2);//7ì¥ ë½‘ê¸°
 	}
-	void info();//Á¤º¸ Ãâ·Â ÇÔ¼ö
-	void givecard();//Ä«µå ³»±â ÇÔ¼ö
-	void selectcard(int num);//Ä«µå °¡Á®¿À±â ÇÔ¼ö
-	size_t size()//Å©±â ¹İÈ¯ ÇÔ¼ö
+	void info();//ì •ë³´ ì¶œë ¥ í•¨ìˆ˜
+	void givecard();//ì¹´ë“œ ë‚´ê¸° í•¨ìˆ˜
+	void selectcard(int num);//ì¹´ë“œ ê°€ì ¸ì˜¤ê¸° í•¨ìˆ˜
+	size_t size()//í¬ê¸° ë°˜í™˜ í•¨ìˆ˜
 	{
 		return mycard.size();
 	}
-	string getname()//ÀÌ¸§ ¹İÈ¯ ÇÔ¼ö
+	string getname()//ì´ë¦„ ë°˜í™˜ í•¨ìˆ˜
 	{
 		return name;
 	}
-	bool iswin()//ÀÌ°å´Ù¸é 1, Á³´Ù¸é 0 ¹İÈ¯
+	bool iswin()//ì´ê²¼ë‹¤ë©´ 1, ì¡Œë‹¤ë©´ 0 ë°˜í™˜
 	{
-		if (mycard.size() == 0)//³» ÆĞ¿¡ Ä«µå°¡ ¾ø´Ù¸é
+		if (mycard.size() == 0)//ë‚´ íŒ¨ì— ì¹´ë“œê°€ ì—†ë‹¤ë©´
 		{
 			score += 500;
 			return 1;
 		}
 		else
 		{
-			return 0;//¾Æ´Ï¶ó¸é
+			return 0;//ì•„ë‹ˆë¼ë©´
 		}
 	}
 	int getscore() const
@@ -41,31 +41,31 @@ public:
 		return score;
 	}
 private:
-	vector<Card> mycard;//³» Ä«µå ÆĞ
-	vector<Card>& cardlist;//Ä«µå ³½ °÷
-	vector<Card>& usecard;//Ä«µå »Ì´Â °÷
-	string name;//ÇÃ·¹ÀÌ¾î ÀÌ¸§
-	int& attack;//°ø°İ°ª ÃÑÇÕ
-	bool& isjmp;//Á¡ÇÁ ¿©ºÎ
-	bool& isreverse;//¹İÀü ¿©ºÎ
-	bool attackplus(const Card& C);//°ø°İ Ä«µå¸¦ ³Â´Ù¸é °ø°İÇÏ´Â ÇÔ¼ö
-	pair<vector<int>,bool> nomal(const Card& uc);//ÀÏ¹İÀûÀÎ °æ¿ì¿¡ »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
-	pair<vector<int>,bool> cardattack(const Card& uc);//°ø°İ¹Ş¾ÒÀ» °æ¿ì »ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ °í¸£´Â ÇÔ¼ö
-	void endwork(vector<int>& a,bool cancel);//»ÌÀ» ¼ö ÀÖ´Â Ä«µå¸¦ Ãâ·ÂÇÏ°í °í¸£°Ô ÇÏ´Â ÇÔ¼ö
-	int score;//Á¡¼ö
-	void fillcard()//Ä«µå »Ì´Â °÷ÀÇ Ä«µå°¡ ¾ø´Ù¸é ³½ °÷¿¡¼­ °¡Á®¿È
+	vector<Card> mycard;//ë‚´ ì¹´ë“œ íŒ¨
+	vector<Card>& cardlist;//ì¹´ë“œ ë‚¸ ê³³
+	vector<Card>& usecard;//ì¹´ë“œ ë½‘ëŠ” ê³³
+	string name;//í”Œë ˆì´ì–´ ì´ë¦„
+	int& attack;//ê³µê²©ê°’ ì´í•©
+	bool& isjmp;//ì í”„ ì—¬ë¶€
+	bool& isreverse;//ë°˜ì „ ì—¬ë¶€
+	bool attackplus(const Card& C);//ê³µê²© ì¹´ë“œë¥¼ ëƒˆë‹¤ë©´ ê³µê²©í•˜ëŠ” í•¨ìˆ˜
+	pair<vector<int>,bool> nomal(const Card& uc);//ì¼ë°˜ì ì¸ ê²½ìš°ì— ë½‘ì„ ìˆ˜ ìˆëŠ” ì¹´ë“œë¥¼ ê³ ë¥´ëŠ” í•¨ìˆ˜
+	pair<vector<int>,bool> cardattack(const Card& uc);//ê³µê²©ë°›ì•˜ì„ ê²½ìš° ë½‘ì„ ìˆ˜ ìˆëŠ” ì¹´ë“œë¥¼ ê³ ë¥´ëŠ” í•¨ìˆ˜
+	void endwork(vector<int>& a,bool cancel);//ë½‘ì„ ìˆ˜ ìˆëŠ” ì¹´ë“œë¥¼ ì¶œë ¥í•˜ê³  ê³ ë¥´ê²Œ í•˜ëŠ” í•¨ìˆ˜
+	int score;//ì ìˆ˜
+	void fillcard()//ì¹´ë“œ ë½‘ëŠ” ê³³ì˜ ì¹´ë“œê°€ ì—†ë‹¤ë©´ ë‚¸ ê³³ì—ì„œ ê°€ì ¸ì˜´
 	{
-		if (cardlist.size() == 0)//Ä«µå »Ì´Â °÷ÀÇ Ä«µå°¡ ¾ø´Ù¸é
+		if (cardlist.size() == 0)//ì¹´ë“œ ë½‘ëŠ” ê³³ì˜ ì¹´ë“œê°€ ì—†ë‹¤ë©´
 		{
-			cout << "Ä«µåÆĞÀÇ ºÎÁ·ÇÑ Ä«µå¸¦ ´Ù½Ã Ã¤¿ó´Ï´Ù." << endl;
+			cout << "ì¹´ë“œíŒ¨ì˜ ë¶€ì¡±í•œ ì¹´ë“œë¥¼ ë‹¤ì‹œ ì±„ì›ë‹ˆë‹¤." << endl;
 			cardlist = usecard;
 			usecard.clear();
 			usecard.push_back(cardlist[cardlist.size()-1]);
-			cardlist.erase(cardlist.end() - 1);//³½ °÷¿¡¼­ Ä«µå ¿Å°Ü¿À±â
-			if (cardlist.size() == 0)//±×·¡µµ ¾ø´Ù¸é
+			cardlist.erase(cardlist.end() - 1);//ë‚¸ ê³³ì—ì„œ ì¹´ë“œ ì˜®ê²¨ì˜¤ê¸°
+			if (cardlist.size() == 0)//ê·¸ë˜ë„ ì—†ë‹¤ë©´
 			{
-				cout << "Ä«µåÆĞ¿¡ Ä«µå°¡ ºÎÁ·ÇÕ´Ï´Ù";//Á¤º¸ Ãâ·Â
-					exit(1);//°­Á¾
+				cout << "ì¹´ë“œíŒ¨ì— ì¹´ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤";//ì •ë³´ ì¶œë ¥
+					exit(1);//ê°•ì¢…
 			}
 		}
 	}

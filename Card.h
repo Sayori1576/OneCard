@@ -1,18 +1,18 @@
 #pragma once
 #include "Default.h"
 
-enum tp{NOMAL,ATTACK,JUMP,REVERSE,DEFENSE,CCHANGE,ONEMORE,TEMP,CANCEL};//»óÅÂ ¿­°ÅÇü
-struct Card //Ä«µå ±¸Á¶Ã¼
+enum tp{NOMAL,ATTACK,JUMP,REVERSE,DEFENSE,CCHANGE,ONEMORE,TEMP,CANCEL};//ìƒíƒœ ì—´ê±°í˜•
+struct Card //ì¹´ë“œ êµ¬ì¡°ì²´
 {
-	Card(const string& k, int num, tp t = NOMAL,int im=0, int at=0);//Á¾·ù, ¼ıÀÚ¸¦ ¹Ş¾Æ ÃÊ±âÈ­ÇÏ´Â »ı¼ºÀÚ
-	Card(const string& na, tp t = NOMAL, int im = 0, int at = 0);//Ä«µå ÀÌ¸§À» ¹Ş¾Æ ÃÊ±âÈ­ÇÏ´Â »ı¼ºÀÚ
-	string kind;//¹®¾ç Á¾·ù
-	int num;//¼ıÀÚ
-	tp type;//Ä«µå Á¾·ù
-	string name;//Ä«µåÀÇ ÀÌ¸§
-	int importance;//Áß¿äµµ(³ôÀ»¼ö·Ï ÁÁÀ½)
-	int attackval;//°ø°İ°ª
-	bool operator<(const Card& rhs)//ºñ±³ ¿¬»êÀÚ
+	Card(const string& k, int num, tp t = NOMAL,int im=0, int at=0);//ì¢…ë¥˜, ìˆ«ìë¥¼ ë°›ì•„ ì´ˆê¸°í™”í•˜ëŠ” ìƒì„±ì
+	Card(const string& na, tp t = NOMAL, int im = 0, int at = 0);//ì¹´ë“œ ì´ë¦„ì„ ë°›ì•„ ì´ˆê¸°í™”í•˜ëŠ” ìƒì„±ì
+	string kind;//ë¬¸ì–‘ ì¢…ë¥˜
+	int num;//ìˆ«ì
+	tp type;//ì¹´ë“œ ì¢…ë¥˜
+	string name;//ì¹´ë“œì˜ ì´ë¦„
+	int importance;//ì¤‘ìš”ë„(ë†’ì„ìˆ˜ë¡ ì¢‹ìŒ)
+	int attackval;//ê³µê²©ê°’
+	bool operator<(const Card& rhs)//ë¹„êµ ì—°ì‚°ì
 	{
 		if (kind != rhs.kind)
 		{

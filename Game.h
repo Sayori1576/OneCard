@@ -1,19 +1,19 @@
 #pragma once
 #include "Player.h"
 #include "Card.h"
-class Game//°ÔÀÓ Å¬·¡½º
+class Game//ê²Œì„ í´ë˜ìŠ¤
 {
 public:
-	Game(const vector<string>& a);//»ı¼ºÀÚ
-	void start();//°ÔÀÓ ½ÃÀÛ
+	Game(const vector<string>& a);//ìƒì„±ì
+	void start();//ê²Œì„ ì‹œì‘
 private:
     
-	vector<Card> cardlist;//ÀüÃ¼ Ä«µåÆĞ
-	vector<Card> usecard;//³½ Ä«µåÆĞ
-	int attack;//°ø°İ°ª
-	vector<Player> Players;//ÇÃ·¹ÀÌ¾îµé
-	void init(size_t t);//ÀüÃ¼ Ä«µåÆĞ¸¦ ÃÊ±âÈ­ÇÏ´Â ÇÔ¼ö
-	bool isjmp;//Á¡ÇÁ ¿©ºÎ
-	bool isreverse;//¹İÀü ¿©ºÎ
+	vector<Card> cardlist;//ì „ì²´ ì¹´ë“œíŒ¨
+	vector<Card> usecard;//ë‚¸ ì¹´ë“œíŒ¨
+	int attack;//ê³µê²©ê°’
+	vector<Player> Players;//í”Œë ˆì´ì–´ë“¤
+	void init(size_t t);//ì „ì²´ ì¹´ë“œíŒ¨ë¥¼ ì´ˆê¸°í™”í•˜ëŠ” í•¨ìˆ˜
+	bool isjmp;//ì í”„ ì—¬ë¶€
+	bool isreverse;//ë°˜ì „ ì—¬ë¶€
 
 };
