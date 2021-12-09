@@ -23,9 +23,9 @@ Card::Card(const string& k, int n, tp t, int im, int at) : kind(k), num(n), type
 Card::Card(const string& na, tp t, int im, int at) : type(t), importance(im), attackval(at)
 {
 	name = na;
-	kind = na.substr(0, 2);
-	int temp = na[2] - '0';
-	if (na[2] == 'A')
+	kind = na.substr(0, 3);
+	int temp = na[3] - '0';
+	if (na[1] == 'A')
 	{
 		temp = 1;
 	}
