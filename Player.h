@@ -11,7 +11,7 @@ public:
 		:cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir),score(0)//초기화
 	{
 
-		selectcard(2);//7장 뽑기
+		selectcard(7);//7장 뽑기
 	}
 	void info();//정보 출력 함수
 	void givecard();//카드 내기 함수

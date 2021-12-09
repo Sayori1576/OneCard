@@ -7,7 +7,7 @@ void Player::info()
 	cout << "현재 " << name << "의 점수는 "<<score<<"점이고 카드 개수는 " << mycard.size() << "개입니다." << endl;
 	cout << uc.name << "이 카드패의 맨 위에 있습니다." << endl;
 	cout << "현재 카드패:";
-	for (int i = 0; i < mycard.size(); i++)
+	for (vector<Card>::size_type i = 0; i < mycard.size(); i++)
 	{
 		cout << mycard[i].name;
 		if (i != mycard.size() - 1 && mycard[i].kind != mycard[i + 1].kind)
@@ -130,7 +130,7 @@ pair<vector<int>,bool> Player::nomal(const Card& uc)
 {
 	vector<int> a;
 	bool isint=0;
-	for (int i = 0; i < mycard.size(); i++)
+	for (vector<int>::size_type i = 0; i < mycard.size(); i++)
 	{
 		if (uc.kind == "J")
 		{
@@ -165,7 +165,7 @@ pair<vector<int>,bool> Player::cardattack(const Card& uc)
 {
 	cout << "상대방의 공격 감지" << endl;
 	vector<int> a;
-	for (int i = 0; i < mycard.size(); i++)
+	for (vector<int>::size_type i = 0; i < mycard.size(); i++)
 	{
 		if (mycard[i].kind == uc.kind || mycard[i].num == uc.num || mycard[i].kind == uc.kind || mycard[i].kind == "J")
 		{
@@ -200,7 +200,7 @@ void Player::endwork(vector<int>& a,bool cancel)
 		}
 	cout << "뽑을 수 있는 카드" << endl;
 	int i;
-	for (i = 0; i < a.size(); i++)
+	for (i = 0; i < static_cast<int64_t>(a.size()); i++)
 	{
 		cout << i << "." << mycard[a[i]].name << "  ";
 		if (i % 7 == 0 && i != 0)
@@ -224,17 +224,17 @@ void Player::endwork(vector<int>& a,bool cancel)
 		{
 			cinnum();
 		}
-		else if (cancel&& n == a.size())
+		else if (cancel&& n == static_cast<int64_t>(a.size()))
 		{
 			cout << "카드 내기를 포기합니다." << endl;
 				cardmeokgi();
 				return;
 		}
-		else if (n < 0 || n >= a.size())
+		else if (n < 0 || n >= static_cast<int64_t>(a.size()))
 		{
 			cout << "잘못 입력하셨습니다" << endl;
 		}
-		else if (mycard[a[n]].attackval >= (usecard.size() + cardlist.size()))
+		else if (mycard[a[n]].attackval >= static_cast<int64_t>(usecard.size() + cardlist.size()))
 		{
 			cout << "낼 수 없습니다" << endl;
 		}

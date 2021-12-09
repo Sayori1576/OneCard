@@ -24,7 +24,7 @@ public:
 	}
 	void run()//작동 함수
 	{
-		for (int i = 0; i < items.size(); i++)
+		for (vector<menuItem>::size_type i = 0; i < items.size(); i++)
 		{
 			cout << i+1 << "." << items[i].text << endl;
 		}
@@ -33,7 +33,7 @@ public:
 			
 			int num;
 			cin >> num;
-			if (num < 0 || num > items.size())
+			if (num < 0 || static_cast<vector<menuItem>::size_type>(num) > items.size())
 			{
 				cout << "잘못 입력하셨습니다." << endl;
 

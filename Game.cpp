@@ -97,7 +97,7 @@ Game::Game(const vector<string>& a):attack(0), isjmp(0), isreverse(0)
 {
 
 	init(a.size());
-	for (auto i = 0; i < a.size(); i++)
+	for (vector<string>::size_type i = 0; i < a.size(); i++)
 	{
 		Players.push_back({ cardlist, usecard, a[i], attack,isjmp,isreverse});
 	}

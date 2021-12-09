@@ -43,7 +43,7 @@ int main()
 
 void chulryeok(string a,int b)
 {
-	for (auto i = 0; i < a.size(); i++)
+	for (string::size_type i = 0; i < a.size(); i++)
 	{
 		cout << a[i];
 		Sleep(b);
