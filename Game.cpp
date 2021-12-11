@@ -149,12 +149,12 @@ void Game::start()
 			cout << Players[xi].getname() << " 승리" << endl;
 			winlist.push_back({Players[xi].getname(), Players[xi].getscore()});
 			Players.erase(Players.begin() + xi);
-			cout << "등수 목록"<<endl;
-			for(auto&x:winlist)
+			cout << "등수 목록" << endl;
+			for (auto &x : winlist)
 			{
-					cout << x.first << "    " << x.second << endl;
+				cout << x.first << "    " << x.second << endl;
 			}
-vector<pair<string, int>> temp1;
+			vector<pair<string, int>> temp1;
 			for (auto &x : Players)
 			{
 				temp1.push_back({x.getname(), x.getscore()});
@@ -182,15 +182,16 @@ vector<pair<string, int>> temp1;
 				cout << x.first << "    " << x.second << endl;
 			}
 			Sleep(3000);
-			cout<<"패자 부활전을 하시겠습니까?"<<endl;
-			cout<<"하고 싶으시다면 r을 누르시오."<<endl;
+			cout << "패자 부활전을 하시겠습니까?" << endl;
+			cout << "하고 싶으시다면 r을 누르시오." << endl;
 			string temp3;
-			cin>>temp3;
-			if(temp3=="r"||temp3=="R")
-			{}
+			cin >> temp3;
+			if (temp3 == "r" || temp3 == "R")
+			{
+			}
 			else
 			{
-			break;
+				break;
 			}
 		}
 		iplus();

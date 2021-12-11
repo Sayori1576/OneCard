@@ -1,6 +1,6 @@
 #include "Card.h"
 
-Card::Card(const string& k, int n, tp t, int im, int at) : kind(k), num(n), type(t), importance(im), attackval(at)
+Card::Card(const string &k, int n, tp t, int im, int at) : kind(k), num(n), type(t), importance(im), attackval(at)
 {
 	string temp = to_string(n);
 	switch (n)
@@ -20,7 +20,7 @@ Card::Card(const string& k, int n, tp t, int im, int at) : kind(k), num(n), type
 	}
 	name = k + temp;
 }
-Card::Card(const string& na, tp t, int im, int at) : type(t), importance(im), attackval(at)
+Card::Card(const string &na, tp t, int im, int at) : type(t), importance(im), attackval(at)
 {
 	name = na;
 	kind = na.substr(0, 3);
