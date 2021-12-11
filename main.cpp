@@ -16,7 +16,7 @@ int main()
 
 	cout << "Made by Sayori1576" << endl;
 
-	cout << "Onecard Game Temp ver." << endl;
+	cout << "Onecard Game" << endl;
 	Menu Start({{"혼자서 놀기", honjaseonolgi}, {"둘이서 놀기", duliseonolgi}});
 	while (1)
 	{

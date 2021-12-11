@@ -108,8 +108,8 @@ void Game::start()
 
 	while (1)
 	{
-		cout << "카드 개수1:" << cardlist.size() << endl;
-		cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;
+		/*	cout << "카드 개수1:" << cardlist.size() << endl;
+			cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;*/
 		auto iplus = [&]()
 		{	if (isreverse)
 		{
@@ -133,6 +133,14 @@ void Game::start()
 				xi++;
 			}
 		} };
+		for (size_t i = 0; i < Players.size(); i++)
+		{
+			if (i != static_cast<size_t>(xi))
+			{
+				Players[i].simpleinfo();
+			}
+		}
+		cout << endl<<endl;
 		if (isjmp)
 		{
 			cout << Players[xi].getname() << " 점프합니다" << endl;
@@ -142,14 +150,15 @@ void Game::start()
 			clrscr();
 			continue;
 		}
+
 		Players[xi].sort();
 		Players[xi].info();
 		Players[xi].givecard();
 		if (Players[xi].iswin())
 		{
 			cout << Players[xi].getname() << " 승리" << endl;
-			int temp4=(Players.size() + winlist.size();
-			Players[xi].plusscore(500 * (Players.size() / temp4)));
+			double temp4 = (Players.size() + winlist.size());
+			Players[xi].plusscore(500 * (Players.size() / temp4));
 			winlist.push_back({Players[xi].getname(), Players[xi].getscore()});
 			Players.erase(Players.begin() + xi);
 			cout << "등수 목록" << endl;
@@ -160,26 +169,21 @@ void Game::start()
 				cout << i << ". " << x.first << endl;
 				i++;
 			}
-			vector<pair<string, int>> temp1;
+			vector<pair<string, int>> temp;
 			for (auto &x : Players)
 			{
-				temp1.push_back({x.getname(), x.getscore()});
+				temp.push_back({x.getname(), x.getscore()});
 			}
-			sort(temp1.begin(), temp1.end(), [](auto &x, auto &y)
+			sort(temp.begin(), temp.end(), [](auto &x, auto &y)
 				 { return x.second > y.second; });
 
-			for (auto &x : temp1)
+			for (auto &x : temp)
 			{
 
 				cout << i << ". " << x.first << endl;
 				i++;
 			}
 			cout << "점수 목록" << endl;
-			vector<pair<string, int>> temp;
-			for (auto &x : Players)
-			{
-				temp.push_back({x.getname(), x.getscore()});
-			}
 			for (auto &x : winlist)
 			{
 				temp.push_back(x);
@@ -193,13 +197,13 @@ void Game::start()
 				cout << i << ". " << x.first << "    " << x.second << endl;
 				i++;
 			}
-			Sleep(3000);
 			cout << "패자 부활전을 하시겠습니까?" << endl;
 			cout << "하고 싶으시다면 r을 누르시오." << endl;
 			string temp3;
 			cin >> temp3;
 			if (temp3 == "r" || temp3 == "R")
 			{
+				clrscr();
 			}
 			else
 			{
