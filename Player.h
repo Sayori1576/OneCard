@@ -19,22 +19,31 @@ public:
 		name = rhs.name;
 		return *this;
 	}
-	void info();			  //정보 출력 함수
+	void info() const;		  //정보 출력 함수
 	void givecard();		  //카드 내기 함수
 	void selectcard(int num); //카드 가져오기 함수
-	size_t size()			  //크기 반환 함수
+	size_t size() const		  //크기 반환 함수
 	{
 		return mycard.size();
 	}
-	string getname() //이름 반환 함수
+	string getname() const //이름 반환 함수
 	{
 		return name;
+	}
+	void plusscore(unsigned i)
+	{
+		score += i;
+	}
+	void sort()
+	{
+		using std::sort;
+		sort(mycard.begin(), mycard.end());
 	}
 	bool iswin() //이겼다면 1, 졌다면 0 반환
 	{
 		if (mycard.size() == 0) //내 패에 카드가 없다면
 		{
-			score += 500;
+
 			return 1;
 		}
 		else

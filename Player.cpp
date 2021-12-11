@@ -1,8 +1,8 @@
 #include "Player.h"
 
-void Player::info()
+void Player::info() const
 {
-	sort(mycard.begin(), mycard.end());
+	
 	Card uc = usecard[usecard.size() - 1];
 	cout << "현재 " << name << "의 점수는 " << score << "점이고 카드 개수는 " << mycard.size() << "개입니다." << endl;
 	cout << uc.name << "이 카드패의 맨 위에 있습니다." << endl;

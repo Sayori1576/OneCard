@@ -142,17 +142,23 @@ void Game::start()
 			clrscr();
 			continue;
 		}
+		Players[xi].sort();
 		Players[xi].info();
 		Players[xi].givecard();
 		if (Players[xi].iswin())
 		{
 			cout << Players[xi].getname() << " 승리" << endl;
+			int temp4=(Players.size() + winlist.size();
+			Players[xi].plusscore(500 * (Players.size() / temp4)));
 			winlist.push_back({Players[xi].getname(), Players[xi].getscore()});
 			Players.erase(Players.begin() + xi);
 			cout << "등수 목록" << endl;
+			int i = 1;
 			for (auto &x : winlist)
 			{
-				cout << x.first << "    " << x.second << endl;
+
+				cout << i << ". " << x.first << endl;
+				i++;
 			}
 			vector<pair<string, int>> temp1;
 			for (auto &x : Players)
@@ -161,9 +167,12 @@ void Game::start()
 			}
 			sort(temp1.begin(), temp1.end(), [](auto &x, auto &y)
 				 { return x.second > y.second; });
+
 			for (auto &x : temp1)
 			{
-				cout << x.first << "    " << x.second << endl;
+
+				cout << i << ". " << x.first << endl;
+				i++;
 			}
 			cout << "점수 목록" << endl;
 			vector<pair<string, int>> temp;
@@ -177,9 +186,12 @@ void Game::start()
 			}
 			sort(temp.begin(), temp.end(), [](auto &x, auto &y)
 				 { return x.second > y.second; });
+			i = 1;
 			for (auto &x : temp)
 			{
-				cout << x.first << "    " << x.second << endl;
+
+				cout << i << ". " << x.first << "    " << x.second << endl;
+				i++;
 			}
 			Sleep(3000);
 			cout << "패자 부활전을 하시겠습니까?" << endl;
