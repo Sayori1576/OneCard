@@ -138,9 +138,13 @@ void Game::start()
 			if (i != static_cast<size_t>(xi))
 			{
 				Players[i].simpleinfo();
+				if (i != Players.size() - 1)
+				{
+					cout << ",";
+				}
 			}
 		}
-		cout << endl<<endl;
+		cout << endl;
 		if (isjmp)
 		{
 			cout << Players[xi].getname() << " 점프합니다" << endl;
@@ -197,13 +201,20 @@ void Game::start()
 				cout << i << ". " << x.first << "    " << x.second << endl;
 				i++;
 			}
-			cout << "패자 부활전을 하시겠습니까?" << endl;
-			cout << "하고 싶으시다면 r을 누르시오." << endl;
-			string temp3;
-			cin >> temp3;
-			if (temp3 == "r" || temp3 == "R")
+			if (Players.size() > 1)
 			{
-				clrscr();
+				cout << "패자 부활전을 하시겠습니까?" << endl;
+				cout << "하고 싶으시다면 r을 누르시오." << endl;
+				string temp3;
+				cin >> temp3;
+				if (temp3 == "r" || temp3 == "R")
+				{
+					clrscr();
+				}
+				else
+				{
+					break;
+				}
 			}
 			else
 			{

@@ -1,7 +1,7 @@
 #include "Player.h"
 void Player::simpleinfo() const
 {
-	cout << name << "의 카드 개수:" << mycard.size()<<"  ";
+	cout << name << ":" << mycard.size()<<"  ";
 }
 void Player::info() const
 {
