@@ -10,7 +10,7 @@ public:
 		: cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir), score(0) //초기화
 	{
 
-		selectcard(2); // 7장 뽑기
+		selectcard(7); // 7장 뽑기
 	}
 	Player &operator=(const Player &rhs)
 	{
