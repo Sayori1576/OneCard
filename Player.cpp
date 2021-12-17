@@ -72,7 +72,7 @@ bool Player::attackplus(const Card &C)
 	}
 	else if (C.type == ONEMORE)
 	{
-		Sleep(3000);
+		Sleep(sleeptime);
 		clrscr();
 		cout << "카드를 한 번 더 냅니다." << endl;
 		info();
@@ -202,7 +202,7 @@ void Player::endwork(std::vector<int> &a, bool cancel)
 	if (k)
 	{
 
-		Sleep(3000);
+		Sleep(sleeptime);
 		clrscr();
 	}
 
@@ -272,6 +272,6 @@ void Player::cardmeokgi()
 		}
 		cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl
 			 << endl;
-		Sleep(3000);
+		Sleep(sleeptime);
 		clrscr();
 }	

@@ -23,7 +23,7 @@ int main()
 		if (temp == "q" || temp == "Q")
 		{
 			cout << "게임을 나갑니다." << endl;
-			Sleep(3000);
+			Sleep(sleeptime);
 			break;
 		}
 		clrscr();

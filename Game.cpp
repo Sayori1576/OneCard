@@ -150,7 +150,7 @@ void Game::start()
 			cout << Players[xi].getname() << " 점프합니다" << endl;
 			isjmp = 0;
 			iplus();
-			Sleep(3000);
+			Sleep(sleeptime);
 			clrscr();
 			continue;
 		}
