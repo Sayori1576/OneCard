@@ -2,13 +2,9 @@
 #include "Card.h"
 #include "Game.h"
 #include "Menulib.h"
-void chulryeok(string a, int b = 50); //문자열을 받아서 멋있게 출력하는 함수
-void honjaseonolgi();				  //혼자서 놀기
-void duliseonolgi();				  //여럿이서 놀기
+void honjaseonolgi(); //혼자서 놀기
+void duliseonolgi();  //여럿이서 놀기
 void init();
-vector<Card> cardlist; //카드패
-vector<Card> usecard;
-int attack;
 
 int main()
 {
@@ -22,7 +18,7 @@ int main()
 	{
 		Start.run();
 		cout << "게임을 끝내고 싶으시다면 Q를 누르시오. 아니라면 아무 키나 누르시오." << endl;
-		string temp;
+		std::string temp;
 		cin >> temp;
 		if (temp == "q" || temp == "Q")
 		{
@@ -35,15 +31,6 @@ int main()
 	clrscr();
 }
 
-void chulryeok(string a, int b)
-{
-	for (string::size_type i = 0; i < a.size(); i++)
-	{
-		cout << a[i];
-		Sleep(b);
-	} //문자열을 5초마다 끊어서 한 글자씩 출력
-	cout << endl;
-}
 void honjaseonolgi()
 {
 	clrscr();
@@ -71,13 +58,13 @@ void duliseonolgi() //여럿이서 놀기 함수
 			break;
 		}
 	}
-	vector<string> name(num); //이름 목록
+	std::vector<std::string> name(num); //이름 목록
 	for (int i = 0; i < num; i++)
 	{
 		cout << "이름을 입력해 주세요" << endl;
-		string temp;	//이름
-		cin >> temp;	//입력 받기
-		name[i] = temp; //목록에 추가
+		std::string temp; //이름
+		cin >> temp;	  //입력 받기
+		name[i] = temp;	  //목록에 추가
 	}
 	clrscr();
 	Game newgame(name); //새로운 게임 생성

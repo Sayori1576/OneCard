@@ -13,8 +13,12 @@
 #include <string>
 #include <iomanip>
 #include <climits>
+#include <thread>
+#include <chrono>
 #pragma once
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cin;
 inline void cinnum()
 {
 
@@ -28,11 +32,7 @@ inline void cinnum()
 #define random(n) (rand() % (n))
 inline void Sleep(clock_t milliseconds)
 {
-
-	clock_t start = clock();
-
-	while ((clock() - start) * 1000 / CLOCKS_PER_SEC < milliseconds)
-		;
+std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
 }
 #ifdef _WIN32
 

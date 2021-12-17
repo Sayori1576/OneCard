@@ -3,12 +3,11 @@
 #include <vector>
 #include <functional>
 #include <string>
-using namespace std;
 struct menuItem //메뉴 아이템
 {
-	string text;											 //텍스트
-	function<void(void)> func;								 //고를 때 작동되는 함수
-	menuItem(const string &t, const function<void(void)> &f) //생성자
+	std::string text;											 //텍스트
+	std::function<void(void)> func;								 //고를 때 작동되는 함수
+	menuItem(const std::string &t, const std::function<void(void)> &f) //생성자
 		: text(t), func(f)
 	{
 	}
@@ -16,13 +15,13 @@ struct menuItem //메뉴 아이템
 class Menu //메뉴
 {
 public:
-	Menu(const vector<menuItem> &i) //생성자
+	Menu(const std::vector<menuItem> &i) //생성자
 		: items(i)
 	{
 	}
 	void run() //작동 함수
 	{
-		for (vector<menuItem>::size_type i = 0; i < items.size(); i++)
+		for (std::vector<menuItem>::size_type i = 0; i < items.size(); i++)
 		{
 			cout << i + 1 << "." << items[i].text << endl;
 		}
@@ -31,7 +30,7 @@ public:
 
 			int num;
 			cin >> num;
-			if (num < 0 || static_cast<vector<menuItem>::size_type>(num) > items.size())
+			if (num < 0 || static_cast<std::vector<menuItem>::size_type>(num) > items.size())
 			{
 				cout << "잘못 입력하셨습니다." << endl;
 			}
@@ -48,5 +47,5 @@ public:
 	}
 
 private:
-	vector<menuItem> items;
+	std::vector<menuItem> items;
 };

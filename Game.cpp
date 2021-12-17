@@ -93,11 +93,11 @@ void Game::init(size_t t)
 	usecard.push_back(cardlist[a]);
 	cardlist.erase(cardlist.begin() + a);
 }
-Game::Game(const vector<string> &a) : attack(0), isjmp(0), isreverse(0)
+Game::Game(const std::vector<std::string> &a) : attack(0), isjmp(0), isreverse(0)
 {
 
 	init(a.size());
-	for (vector<string>::size_type i = 0; i < a.size(); i++)
+	for (std::vector<std::string>::size_type i = 0; i < a.size(); i++)
 	{
 		Players.push_back({cardlist, usecard, a[i], attack, isjmp, isreverse});
 	}
@@ -140,7 +140,7 @@ void Game::start()
 				Players[i].simpleinfo();
 				if (i != Players.size() - 1)
 				{
-					cout << ",";
+					cout << ", ";
 				}
 			}
 		}
@@ -173,12 +173,12 @@ void Game::start()
 				cout << i << ". " << x.first << endl;
 				i++;
 			}
-			vector<pair<string, int>> temp;
+			std::vector<std::pair<std::string, int>> temp;
 			for (auto &x : Players)
 			{
 				temp.push_back({x.getname(), x.getscore()});
 			}
-			sort(temp.begin(), temp.end(), [](auto &x, auto &y)
+			std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
 				 { return x.second > y.second; });
 
 			for (auto &x : temp)
@@ -192,7 +192,7 @@ void Game::start()
 			{
 				temp.push_back(x);
 			}
-			sort(temp.begin(), temp.end(), [](auto &x, auto &y)
+			std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
 				 { return x.second > y.second; });
 			i = 1;
 			for (auto &x : temp)
@@ -205,7 +205,7 @@ void Game::start()
 			{
 				cout << "패자 부활전을 하시겠습니까?" << endl;
 				cout << "하고 싶으시다면 r을 누르시오." << endl;
-				string temp3;
+				std::string temp3;
 				cin >> temp3;
 				if (temp3 == "r" || temp3 == "R")
 				{
