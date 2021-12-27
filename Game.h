@@ -15,4 +15,6 @@ private:
 	bool isjmp;				//점프 여부
 	bool isreverse;			//반전 여부
 	std::vector<std::pair<std::string, int>> winlist;
+void printranks();
+
 };

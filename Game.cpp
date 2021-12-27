@@ -108,8 +108,8 @@ void Game::start()
 
 	while (1)
 	{
-		/*	cout << "카드 개수1:" << cardlist.size() << endl;
-			cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;*/
+		cout << "카드 개수1:" << cardlist.size() << endl;
+		cout << "카드 개수2:" << usecard.size() + cardlist.size() << endl;
 		auto iplus = [&]()
 		{	if (isreverse)
 		{
@@ -135,13 +135,11 @@ void Game::start()
 		} };
 		for (size_t i = 0; i < Players.size(); i++)
 		{
-			if (i != static_cast<size_t>(xi))
+
+			Players[i].simpleinfo();
+			if (i != Players.size() - 1)
 			{
-				Players[i].simpleinfo();
-				if (i != Players.size() - 1)
-				{
-					cout << ", ";
-				}
+				cout << ", ";
 			}
 		}
 		cout << endl;
@@ -165,42 +163,7 @@ void Game::start()
 			Players[xi].plusscore(500 * (Players.size() / temp4));
 			winlist.push_back({Players[xi].getname(), Players[xi].getscore()});
 			Players.erase(Players.begin() + xi);
-			cout << "등수 목록" << endl;
-			int i = 1;
-			for (auto &x : winlist)
-			{
-
-				cout << i << ". " << x.first << endl;
-				i++;
-			}
-			std::vector<std::pair<std::string, int>> temp;
-			for (auto &x : Players)
-			{
-				temp.push_back({x.getname(), x.getscore()});
-			}
-			std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
-				 { return x.second > y.second; });
-
-			for (auto &x : temp)
-			{
-
-				cout << i << ". " << x.first << endl;
-				i++;
-			}
-			cout << "점수 목록" << endl;
-			for (auto &x : winlist)
-			{
-				temp.push_back(x);
-			}
-			std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
-				 { return x.second > y.second; });
-			i = 1;
-			for (auto &x : temp)
-			{
-
-				cout << i << ". " << x.first << "    " << x.second << endl;
-				i++;
-			}
+			printranks();
 			if (Players.size() > 1)
 			{
 				cout << "패자 부활전을 하시겠습니까?" << endl;
@@ -222,5 +185,44 @@ void Game::start()
 			}
 		}
 		iplus();
+	}
+}
+void Game::printranks()
+{
+	cout << "등수 목록" << endl;
+	int i = 1;
+	for (auto &x : winlist)
+	{
+
+		cout << i << ". " << x.first << endl;
+		i++;
+	}
+	std::vector<std::pair<std::string, int>> temp;
+	for (auto &x : Players)
+	{
+		temp.push_back({x.getname(), x.getscore()});
+	}
+	std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
+			  { return x.second > y.second; });
+
+	for (auto &x : temp)
+	{
+
+		cout << i << ". " << x.first << endl;
+		i++;
+	}
+	cout << "점수 목록" << endl;
+	for (auto &x : winlist)
+	{
+		temp.push_back(x);
+	}
+	std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
+			  { return x.second > y.second; });
+	i = 1;
+	for (auto &x : temp)
+	{
+
+		cout << i << ". " << x.first << "    " << x.second << endl;
+		i++;
 	}
 }

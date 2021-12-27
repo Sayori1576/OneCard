@@ -176,39 +176,35 @@ std::pair<std::vector<int>, bool> Player::cardattack(const Card &uc)
 }
 void Player::endwork(std::vector<int> &a, bool cancel)
 {
-	
-	
 	if (a.size() == 0)
 	{
-
 		cout << "낼 수 있는 카드가 없습니다." << endl;
 		cardmeokgi();
 		return;
 	}
+
+	score++;
+	int n = printandinputcard(a, cancel);
 	if (usecard[usecard.size() - 1].type == TEMP)
 	{
 		usecard.erase(usecard.begin() + (usecard.size() - 1));
 	}
-	score++;
-	int n=printandinputcard(a,cancel);
-	if(n==1)
+	if (n == -1)
 	{
+		cardmeokgi();
 		return;
 	}
 	usecard.push_back(mycard[n]);
-	mycard.erase(mycard.begin() + a[n]);
+	mycard.erase(mycard.begin() + n);
 	cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl;
 	bool k = !attackplus(usecard[usecard.size() - 1]);
 	if (k)
 	{
-
 		Sleep(sleeptime);
 		clrscr();
 	}
-
-	return;
 }
-int Player::printandinputcard(const std::vector<int>& a,bool cancel)
+int Player::printandinputcard(const std::vector<int> &a, bool cancel)
 {
 	cout << "뽑을 수 있는 카드" << endl;
 	int i;
@@ -224,13 +220,10 @@ int Player::printandinputcard(const std::vector<int>& a,bool cancel)
 	{
 		cout << i << ".취소" << endl;
 	}
-
 	cout << "번호 입력" << endl;
 	int n;
-
 	while (1)
 	{
-
 		cin >> n;
 		if (!cin)
 		{
@@ -239,39 +232,39 @@ int Player::printandinputcard(const std::vector<int>& a,bool cancel)
 		else if (cancel && n == static_cast<int64_t>(a.size()))
 		{
 			cout << "카드 내기를 포기합니다." << endl;
-			cardmeokgi();
+
 			return -1;
 		}
 		else if (n < 0 || n >= static_cast<int64_t>(a.size()))
 		{
 			cout << "잘못 입력하셨습니다" << endl;
 		}
-		else if (mycard[a[n]].attackval >= static_cast<int64_t>(usecard.size() + cardlist.size()))
+		else if ((attack + mycard[a[n]].attackval) >= static_cast<int64_t>(usecard.size() + cardlist.size()))
 		{
 			cout << "낼 수 없습니다" << endl;
 		}
-
 		else
 		{
 			break;
 		}
 	}
-return a[n];
+	return a[n];
 }
+
 void Player::cardmeokgi()
 {
 	if (attack != 0)
-		{
-			cout << "카드 " << attack << " 장을 먹습니다." << endl;
-			selectcard(attack);
-			attack = 0;
-		}
-		else
-		{
-			selectcard(1);
-		}
-		cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl
-			 << endl;
-		Sleep(sleeptime);
-		clrscr();
-}	
+	{
+		cout << "카드 " << attack << " 장을 먹습니다." << endl;
+		selectcard(attack);
+		attack = 0;
+	}
+	else
+	{
+		selectcard(1);
+	}
+	cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl
+		 << endl;
+	Sleep(sleeptime);
+	clrscr();
+}

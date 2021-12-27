@@ -7,7 +7,7 @@ class Player
 
 public:
 	Player(std::vector<Card> &b, std::vector<Card> &c, const std::string &n, int &a, bool &ij, bool &ir) //생성자
-		: cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir), score(0) //초기화
+		: cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir), score(0)				 //초기화
 	{
 
 		selectcard(7); // 7장 뽑기
@@ -59,18 +59,18 @@ public:
 	}
 
 private:
-	std::vector<Card> mycard;							//내 카드 패
-	std::vector<Card> &cardlist;								//카드 낸 곳
-	std::vector<Card> &usecard;								//카드 뽑는 곳
-	std::string name;										//플레이어 이름
-	int &attack;										//공격값 총합
-	bool &isjmp;										//점프 여부
-	bool &isreverse;									//반전 여부
-	bool attackplus(const Card &C);						//공격 카드를 냈다면 공격하는 함수
-	std::pair<std::vector<int>, bool> nomal(const Card &uc);		//일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
+	std::vector<Card> mycard;									  //내 카드 패
+	std::vector<Card> &cardlist;								  //카드 낸 곳
+	std::vector<Card> &usecard;									  //카드 뽑는 곳
+	std::string name;											  //플레이어 이름
+	int &attack;												  //공격값 총합
+	bool &isjmp;												  //점프 여부
+	bool &isreverse;											  //반전 여부
+	bool attackplus(const Card &C);								  //공격 카드를 냈다면 공격하는 함수
+	std::pair<std::vector<int>, bool> nomal(const Card &uc);	  //일반적인 경우에 뽑을 수 있는 카드를 고르는 함수
 	std::pair<std::vector<int>, bool> cardattack(const Card &uc); //공격받았을 경우 뽑을 수 있는 카드를 고르는 함수
-	void endwork(std::vector<int> &a, bool cancel);			//뽑을 수 있는 카드를 출력하고 고르게 하는 함수
-	int printandinputcard(const std::vector<int>& a,bool cancel);
+	void endwork(std::vector<int> &a, bool cancel);				  //뽑을 수 있는 카드를 출력하고 고르게 하는 함수
+	int printandinputcard(const std::vector<int> &a, bool cancel);
 	void cardmeokgi();
 	int score;		//점수
 	void fillcard() //카드 뽑는 곳의 카드가 없다면 낸 곳에서 가져옴
