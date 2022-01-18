@@ -1,5 +1,6 @@
 #include "Default.h"
 #include "Card.h"
+#include "Score.h"
 #pragma once
 
 class Player
@@ -7,7 +8,7 @@ class Player
 
 public:
 	Player(std::vector<Card> &b, std::vector<Card> &c, const std::string &n, int &a, bool &ij, bool &ir) //생성자
-		: cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir), score(0)				 //초기화
+		: cardlist(b), usecard(c), name(n), attack(a), isjmp(ij), isreverse(ir)				 //초기화
 	{
 
 		selectcard(7); // 7장 뽑기
@@ -34,7 +35,7 @@ public:
 	}
 	void plusscore(unsigned i)
 	{
-		score += i;
+		score.addscore(i);
 	}
 	void sort()
 	{
@@ -55,7 +56,7 @@ public:
 	}
 	int getscore() const
 	{
-		return score;
+		return score.getscore();
 	}
 
 private:
@@ -72,7 +73,7 @@ private:
 	void endwork(std::vector<int> &a, bool cancel);				  //뽑을 수 있는 카드를 출력하고 고르게 하는 함수
 	int printandinputcard(const std::vector<int> &a, bool cancel);
 	void cardmeokgi();
-	int score;		//점수
+	Score score;		//점수
 	void fillcard() //카드 뽑는 곳의 카드가 없다면 낸 곳에서 가져옴
 	{
 		if (cardlist.size() == 0) //카드 뽑는 곳의 카드가 없다면

@@ -7,7 +7,7 @@ void Player::info() const
 {
 
 	Card uc = usecard[usecard.size() - 1];
-	cout << "현재 " << name << "의 점수는 " << score << "점이고 카드 개수는 " << mycard.size() << "개입니다." << endl;
+	cout << "현재 " << name << "의 점수는 " << score.getscore()<< "점이고 카드 개수는 " << mycard.size() << "개입니다." << endl;
 	cout << uc.name << "이 카드패의 맨 위에 있습니다." << endl;
 	cout << "현재 카드패:";
 	for (std::vector<Card>::size_type i = 0; i < mycard.size(); i++)
@@ -60,7 +60,7 @@ bool Player::attackplus(const Card &C)
 		attack += C.attackval;
 		cout << name << " 은" << C.name << " 으로 공격" << endl;
 		cout << "먹어야 할 카드 " << C.attackval << "개 누적" << endl;
-		score += C.attackval;
+		score.addscore(C.attackval);
 	}
 	else if (C.type == DEFENSE)
 	{
@@ -183,7 +183,7 @@ void Player::endwork(std::vector<int> &a, bool cancel)
 		return;
 	}
 
-	score++;
+	score.addscore(1);
 	int n = printandinputcard(a, cancel);
 	if (usecard[usecard.size() - 1].type == TEMP)
 	{
