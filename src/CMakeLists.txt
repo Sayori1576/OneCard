@@ -1,5 +1,5 @@
 include_directories(${CMAKE_SOURCE_DIR}/include)
-set(SRCS Onecard main.cpp Card.cpp Game.cpp Player.cpp Glcard.cpp Nstatus.cpp Inoutpututils.cpp Score.cpp)
+set(SRCS Onecard main.cpp Card.cpp Game.cpp Player.cpp Glcard.cpp Nstatus.cpp Score.cpp)
 add_executable(${SRCS})
 set(CMAKE_CXX_STANDARD 20)
 target_compile_options(Onecard PUBLIC -Wall -Werror)
