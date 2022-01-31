@@ -1,12 +1,12 @@
 class plinoutputbase
 {
-virtual void printinfo();
-virtual void attackment();
-virtual void defenctment();
-virtual void onemorement();
-virtual void inputcardkind();
-virtual void changekindment();
-virtual void printandinputcard();
-virtual void cardmeokgiment();
-virtual void princardsize();
+virtual void printinfo()=0;
+virtual void attackment()=0;
+virtual void defenctment()=0;
+virtual void onemorement()=0;
+virtual void inputcardkind()=0;
+virtual void changekindment()=0;
+virtual void printandinputcard()=0;
+virtual void cardmeokgiment()=0;
+virtual void princardsize()=0;
 };

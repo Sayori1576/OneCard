@@ -1,26 +1,21 @@
-﻿#include "Player.h"
-#include "Card.h"
-#include "Game.h"
+﻿#include "Game.h"
 #include "Menulib.h"
+#include "textglinoutput.h"
 void honjaseonolgi(); //혼자서 놀기
 void duliseonolgi();  //여럿이서 놀기
 void init();
-
+std::unique_ptr<Glinoutputbase> inout;
 int main()
 {
 	init();
-
-	cout << "Made by Sayori1576" << endl;
-
-	cout << "Onecard Game" << endl;
+	inout = std::make_unique<TextGlInOutput>();
+	inout->startment();
 	Menu Start({{"혼자서 놀기", honjaseonolgi}, {"둘이서 놀기", duliseonolgi}});
 	while (1)
 	{
 		Start.run();
-		cout << "게임을 끝내고 싶으시다면 Q를 누르시오. 아니라면 아무 키나 누르시오." << endl;
-		std::string temp;
-		cin >> temp;
-		if (temp == "q" || temp == "Q")
+
+		if (inout->quitment())
 		{
 			cout << "게임을 나갑니다." << endl;
 			Sleep(sleeptime);
@@ -39,32 +34,12 @@ void honjaseonolgi()
 void duliseonolgi() //여럿이서 놀기 함수
 {
 	clrscr();
-	cout << "몇 명이서 할 건가요?" << endl;
-	int num; //플레이어 수
-	while (1)
-	{
-
-		cin >> num; //입력 받기
-		if (!cin)
-		{
-			cinnum();
-		}
-		else if ((num >= 7) || (num <= 1))
-		{
-			cout << "7명 이상은 이 게임을 할 수 없어요." << endl;
-		}
-		else
-		{
-			break;
-		}
-	}
+	int num = inout->inputplayernum();
 	std::vector<std::string> name(num); //이름 목록
 	for (int i = 0; i < num; i++)
 	{
-		cout << "이름을 입력해 주세요" << endl;
-		std::string temp; //이름
-		cin >> temp;	  //입력 받기
-		name[i] = temp;	  //목록에 추가
+		std::string temp = inout->inputplayername();
+		name[i] = temp; //목록에 추가
 	}
 	clrscr();
 	Game newgame(name); //새로운 게임 생성
