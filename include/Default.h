@@ -15,6 +15,7 @@
 #include <climits>
 #include <thread>
 #include <chrono>
+#include <string_view>
 #pragma once
 using std::cout;
 using std::endl;

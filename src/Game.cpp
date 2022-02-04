@@ -93,7 +93,7 @@ void Game::init(size_t t)
 	usecard.push_back(cardlist[a]);
 	cardlist.erase(cardlist.begin() + a);
 }
-Game::Game(const std::vector<std::string> &a) : attack(0), isjmp(0), isreverse(0)
+Game::Game(const std::vector<std::string> &a, std::unique_ptr<GmInoutputbase> &&i) : attack(0), isjmp(0), isreverse(0), inout(std::move(i))
 {
 
 	init(a.size());
@@ -145,8 +145,8 @@ void Game::start()
 		cout << endl;
 		if (isjmp)
 		{
-			cout << Players[xi].getname() << " 점프합니다" << endl;
-			isjmp = 0;
+			inout->jumpment(Players[xi].getname());
+				isjmp = 0;
 			iplus();
 			Sleep(sleeptime);
 			clrscr();
@@ -158,21 +158,24 @@ void Game::start()
 		Players[xi].givecard();
 		if (Players[xi].iswin())
 		{
-			cout << Players[xi].getname() << " 승리" << endl;
+			inout->winment(Players[xi].getname());
 			double temp4 = (Players.size() + winlist.size());
 			Players[xi].plusscore(500 * (Players.size() / temp4));
 			winlist.push_back({Players[xi].getname(), Players[xi].getscore()});
 			Players.erase(Players.begin() + xi);
-			printranks();
+			std::vector<std::pair<std::string, int>> temp;
+			for (auto &x : Players)
+			{
+				temp.push_back({x.getname(), x.getscore()});
+			}
+			inout->printranks(winlist,temp);
 			if (Players.size() > 1)
 			{
-				cout << "패자 부활전을 하시겠습니까?" << endl;
-				cout << "하고 싶으시다면 r을 누르시오." << endl;
-				std::string temp3;
-				cin >> temp3;
-				if (temp3 == "r" || temp3 == "R")
+				if (inout->isretry())
 				{
 					clrscr();
+					attack=0;
+					//카드 개수가 2일 경우 JQK의 종류를 번경하는 코드, 상태를 없에는 코드가 필요
 				}
 				else
 				{
@@ -189,40 +192,5 @@ void Game::start()
 }
 void Game::printranks()
 {
-	cout << "등수 목록" << endl;
-	int i = 1;
-	for (auto &x : winlist)
-	{
-
-		cout << i << ". " << x.first << endl;
-		i++;
-	}
-	std::vector<std::pair<std::string, int>> temp;
-	for (auto &x : Players)
-	{
-		temp.push_back({x.getname(), x.getscore()});
-	}
-	std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
-			  { return x.second > y.second; });
-
-	for (auto &x : temp)
-	{
-
-		cout << i << ". " << x.first << endl;
-		i++;
-	}
-	cout << "점수 목록" << endl;
-	for (auto &x : winlist)
-	{
-		temp.push_back(x);
-	}
-	std::sort(temp.begin(), temp.end(), [](auto &x, auto &y)
-			  { return x.second > y.second; });
-	i = 1;
-	for (auto &x : temp)
-	{
-
-		cout << i << ". " << x.first << "    " << x.second << endl;
-		i++;
-	}
+	
 }

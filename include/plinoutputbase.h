@@ -1,3 +1,5 @@
+#include "Default.h"
+#pragma once
 class plinoutputbase
 {
 virtual void printinfo()=0;

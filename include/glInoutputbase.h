@@ -1,4 +1,5 @@
 #include "Default.h"
+#pragma once
 class Glinoutputbase
 {
 public:

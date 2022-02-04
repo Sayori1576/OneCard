@@ -1,4 +1,5 @@
 #include "glInoutputbase.h"
+#pragma once
 class TextGlInOutput:public Glinoutputbase
 {
 public:

@@ -1,6 +1,7 @@
 ﻿#include "Game.h"
 #include "Menulib.h"
 #include "textglinoutput.h"
+#include "textgminoutput.h"
 void honjaseonolgi(); //혼자서 놀기
 void duliseonolgi();  //여럿이서 놀기
 void init();
@@ -14,7 +15,7 @@ int main()
 	while (1)
 	{
 		Start.run();
-
+		inout->startment();
 		if (inout->quitment())
 		{
 			cout << "게임을 나갑니다." << endl;
@@ -42,38 +43,39 @@ void duliseonolgi() //여럿이서 놀기 함수
 		name[i] = temp; //목록에 추가
 	}
 	clrscr();
-	Game newgame(name); //새로운 게임 생성
-	newgame.start();	//게임 시작
-						/*Player a(cardlist, usecard, "Player1", attack);
-						Player b(cardlist, usecard, "Player2", attack);
-						for (;;)
-						{
-							a.info();
-							if (a.size() == 0)
-							{
-								cout << a.getname() << "승리" << endl;
-								break;
-							}
-							a.givecard();
-							if (a.size() == 0)
-							{
-								cout << a.getname() << "승리" << endl;
-								break;
-							}
-							b.info();
-							if (b.size() == 0)
-							{
-								cout << b.getname() << "승리" << endl;
-								break;
-							}
-							b.givecard();
-							if (b.size() == 0)
-							{
-								cout << b.getname() << "승리" << endl;
-								break;
-							}
-					
-						}*/
+	std::unique_ptr<GmInoutputbase> temp = std::make_unique<TextGmInoutput>();
+	Game newgame(name, std::move(temp)); //새로운 게임 생성
+	newgame.start();					 //게임 시작
+										 /*Player a(cardlist, usecard, "Player1", attack);
+										 Player b(cardlist, usecard, "Player2", attack);
+										 for (;;)
+										 {
+											 a.info();
+											 if (a.size() == 0)
+											 {
+												 cout << a.getname() << "승리" << endl;
+												 break;
+											 }
+											 a.givecard();
+											 if (a.size() == 0)
+											 {
+												 cout << a.getname() << "승리" << endl;
+												 break;
+											 }
+											 b.info();
+											 if (b.size() == 0)
+											 {
+												 cout << b.getname() << "승리" << endl;
+												 break;
+											 }
+											 b.givecard();
+											 if (b.size() == 0)
+											 {
+												 cout << b.getname() << "승리" << endl;
+												 break;
+											 }
+									 
+										 }*/
 }
 
 void init()
