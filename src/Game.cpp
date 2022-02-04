@@ -175,6 +175,7 @@ void Game::start()
 				{
 					clrscr();
 					attack=0;
+					xi=0;
 					//카드 개수가 2일 경우 JQK의 종류를 번경하는 코드, 상태를 없에는 코드가 필요
 				}
 				else
@@ -187,7 +188,10 @@ void Game::start()
 				break;
 			}
 		}
+		else
+		{
 		iplus();
+		}
 	}
 }
 void Game::printranks()
