@@ -1,5 +1,7 @@
 #include "Default.h"
 #pragma once
+namespace Onecard
+{
 class plinoutputbase
 {
 virtual void printinfo()=0;
@@ -12,3 +14,4 @@ virtual void printandinputcard()=0;
 virtual void cardmeokgiment()=0;
 virtual void princardsize()=0;
 };
+}

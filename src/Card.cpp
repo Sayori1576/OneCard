@@ -1,5 +1,6 @@
 #include "Card.h"
-
+namespace Onecard
+{
 Card::Card(const std::string &k, int n, tp t, int im, int at) : kind(k), num(n), type(t), importance(im), attackval(at)
 {
 	std::string temp = std::to_string(n);
@@ -43,4 +44,5 @@ Card::Card(const std::string &na, tp t, int im, int at) : type(t), importance(im
 	}
 
 	num = temp;
+}
 }

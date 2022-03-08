@@ -1,5 +1,7 @@
 #include "Default.h"
 #pragma once
+namespace Onecard
+{
 class Glinoutputbase
 {
 public:
@@ -9,3 +11,4 @@ virtual int inputplayernum()=0;
 virtual std::string inputplayername()=0;
 
 };
+}

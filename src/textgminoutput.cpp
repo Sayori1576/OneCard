@@ -1,4 +1,6 @@
 #include "textgminoutput.h"
+namespace Onecard
+{
 void TextGmInoutput::jumpment(std::string_view plname)
 {
     cout << plname << " 점프합니다" << endl;
@@ -60,4 +62,5 @@ void TextGmInoutput::printranks(const std::vector<std::pair<std::string, int>>& 
 		cout << i << ". " << x.first << "    " << x.second << endl;
 		i++;
 	}
+}
 }

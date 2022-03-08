@@ -1,5 +1,6 @@
 #include "Game.h"
-
+namespace Onecard
+{
 void Game::init(size_t t)
 {
 	cardlist.push_back({"♠", 1, ATTACK, 3, 5});
@@ -148,8 +149,8 @@ void Game::start()
 			inout->jumpment(Players[xi].getname());
 				isjmp = 0;
 			iplus();
-			Sleep(sleeptime);
-			clrscr();
+			Default::Sleep(Default::sleeptime);
+			Default::clrscr();
 			continue;
 		}
 
@@ -173,7 +174,7 @@ void Game::start()
 			{
 				if (inout->isretry())
 				{
-					clrscr();
+					Default::clrscr();
 					attack=0;
 					xi=0;
 					//카드 개수가 2일 경우 JQK의 종류를 번경하는 코드, 상태를 없에는 코드가 필요
@@ -197,4 +198,5 @@ void Game::start()
 void Game::printranks()
 {
 	
+}
 }

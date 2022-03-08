@@ -1,6 +1,7 @@
 #pragma once
 #include "Default.h"
-
+namespace Onecard
+{
 enum tp
 {
 	NOMAL,
@@ -35,3 +36,4 @@ struct Card //카드 구조체
 		}
 	}
 };
+}

@@ -1,5 +1,5 @@
 
-
+#pragma once
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
@@ -16,10 +16,11 @@
 #include <thread>
 #include <chrono>
 #include <string_view>
-#pragma once
 using std::cout;
 using std::endl;
 using std::cin;
+namespace Default
+{
 inline void cinnum()
 {
 
@@ -51,3 +52,4 @@ inline void clrscr()
 }
 
 #endif
+}

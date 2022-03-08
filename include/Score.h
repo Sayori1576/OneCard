@@ -1,4 +1,6 @@
 #include "Default.h"
+namespace Onecard
+{
 class Score
 {
 public:
@@ -11,3 +13,4 @@ public:
 private:
     int score;
 };
+}

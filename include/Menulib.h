@@ -1,8 +1,25 @@
 #pragma once
+#include <climits>
 #include <iostream>
 #include <vector>
 #include <functional>
 #include <string>
+#include <cstdlib>
+using std::cout;
+using std::cin;
+using std::endl;
+namespace Menu
+{
+inline void cinnum()
+{
+
+	cin.clear();
+
+	cin.ignore(INT_MAX, '\n');
+
+	cout << "잘못된 값을 입력하셨습니다. 숫자만 입력해주세요.\n";
+}
+
 struct menuItem //메뉴 아이템
 {
 	std::string text;											 //텍스트
@@ -49,3 +66,4 @@ public:
 private:
 	std::vector<menuItem> items;
 };
+}

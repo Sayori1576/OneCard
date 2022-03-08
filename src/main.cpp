@@ -5,13 +5,13 @@
 void honjaseonolgi(); //혼자서 놀기
 void duliseonolgi();  //여럿이서 놀기
 void init();
-std::unique_ptr<Glinoutputbase> inout;
+std::unique_ptr<Onecard::Glinoutputbase> inout;
 int main()
 {
 	init();
-	inout = std::make_unique<TextGlInOutput>();
+	inout = std::make_unique<Onecard::TextGlInOutput>();
 	inout->startment();
-	Menu Start({{"혼자서 놀기", honjaseonolgi}, {"둘이서 놀기", duliseonolgi}});
+	Menu::Menu Start({{"혼자서 놀기", honjaseonolgi}, {"둘이서 놀기", duliseonolgi}});
 	while (1)
 	{
 		Start.run();
@@ -19,22 +19,22 @@ int main()
 		if (inout->quitment())
 		{
 			cout << "게임을 나갑니다." << endl;
-			Sleep(sleeptime);
+			Default::Sleep(Default::sleeptime);
 			break;
 		}
-		clrscr();
+		Default::clrscr();
 	}
-	clrscr();
+	Default::clrscr();
 }
 
 void honjaseonolgi()
 {
-	clrscr();
+	Default::clrscr();
 	cout << "개발 중입니다" << endl;
 }
 void duliseonolgi() //여럿이서 놀기 함수
 {
-	clrscr();
+	Default::clrscr();
 	int num = inout->inputplayernum();
 	std::vector<std::string> name(num); //이름 목록
 	for (int i = 0; i < num; i++)
@@ -42,9 +42,9 @@ void duliseonolgi() //여럿이서 놀기 함수
 		std::string temp = inout->inputplayername();
 		name[i] = temp; //목록에 추가
 	}
-	clrscr();
-	std::unique_ptr<GmInoutputbase> temp = std::make_unique<TextGmInoutput>();
-	Game newgame(name, std::move(temp)); //새로운 게임 생성
+	Default::clrscr();
+	std::unique_ptr<Onecard::GmInoutputbase> temp = std::make_unique<Onecard::TextGmInoutput>();
+	Onecard::Game newgame(name, std::move(temp)); //새로운 게임 생성
 	newgame.start();					 //게임 시작
 										 /*Player a(cardlist, usecard, "Player1", attack);
 										 Player b(cardlist, usecard, "Player2", attack);

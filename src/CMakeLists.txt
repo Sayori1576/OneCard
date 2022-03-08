@@ -1,6 +1,6 @@
 include_directories(${CMAKE_SOURCE_DIR}/include)
-set(SRCS Onecard main.cpp Card.cpp Game.cpp Player.cpp Glcard.cpp Nstatus.cpp Score.cpp textglinoutput.cpp textgminoutput.cpp)
-add_executable(${SRCS})
+set(SRCS  main.cpp Card.cpp Game.cpp Player.cpp GlCard.cpp Nstatus.cpp Score.cpp textglinoutput.cpp textgminoutput.cpp)
+add_executable(Onecard ${SRCS})
 set(CMAKE_CXX_STANDARD 20)
 target_compile_options(Onecard PUBLIC -Wall -Werror)
 set(CMAKE_CXX_FLAGS_DEBUG "-g")

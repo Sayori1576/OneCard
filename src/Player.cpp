@@ -1,4 +1,6 @@
 #include "Player.h"
+namespace Onecard
+{
 void Player::simpleinfo() const
 {
 	cout << name << ":" << mycard.size();
@@ -72,8 +74,8 @@ bool Player::attackplus(const Card &C)
 	}
 	else if (C.type == ONEMORE)
 	{
-		Sleep(sleeptime);
-		clrscr();
+		Default::Sleep(Default::sleeptime);
+		Default::clrscr();
 		if (iswin())
 			return true;
 		cout << "카드를 한 번 더 냅니다." << endl;
@@ -111,7 +113,7 @@ bool Player::attackplus(const Card &C)
 			}
 			else if (!cin)
 			{
-				cinnum();
+				Default::cinnum();
 			}
 			else
 			{
@@ -202,8 +204,8 @@ void Player::endwork(std::vector<int> &a, bool cancel)
 	bool k = !attackplus(usecard[usecard.size() - 1]);
 	if (k)
 	{
-		Sleep(sleeptime);
-		clrscr();
+		Default::Sleep(Default::sleeptime);
+		Default::clrscr();
 	}
 }
 int Player::printandinputcard(const std::vector<int> &a, bool cancel)
@@ -229,7 +231,7 @@ int Player::printandinputcard(const std::vector<int> &a, bool cancel)
 		cin >> n;
 		if (!cin)
 		{
-			cinnum();
+			Default::cinnum();
 		}
 		else if (cancel && n == static_cast<int64_t>(a.size()))
 		{
@@ -267,6 +269,7 @@ void Player::cardmeokgi()
 	}
 	cout << "현재 " << name << "의 카드 개수는 " << mycard.size() << "개입니다." << endl
 		 << endl;
-	Sleep(sleeptime);
-	clrscr();
+	Default::Sleep(Default::sleeptime);
+	Default::clrscr();
+}
 }

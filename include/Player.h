@@ -2,7 +2,8 @@
 #include "Card.h"
 #include "Score.h"
 #pragma once
-
+namespace Onecard
+{
 class Player
 {
 
@@ -91,3 +92,4 @@ private:
 		}
 	}
 };
+}

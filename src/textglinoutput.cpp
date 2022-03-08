@@ -1,4 +1,6 @@
 #include "textglinoutput.h"
+namespace Onecard
+{
 void TextGlInOutput::startment()
 {
     cout << "Made by Sayori1576" << endl;
@@ -29,7 +31,7 @@ int TextGlInOutput::inputplayernum()
         cin >> num; //입력 받기
         if (!cin)
         {
-            cinnum();
+            Default::cinnum();
         }
         else if ((num >= 7) || (num <= 1))
         {
@@ -49,4 +51,5 @@ std::string TextGlInOutput::inputplayername()
     cin >> temp;      //입력 받기
 
     return temp;
+}
 }

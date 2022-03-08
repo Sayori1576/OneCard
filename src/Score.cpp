@@ -1,4 +1,6 @@
 #include "Score.h"
+namespace Onecard
+{
 int Score::getscore() const
 {
     return score;
@@ -6,4 +8,5 @@ int Score::getscore() const
 void Score::addscore(int addval)
 {
     score += addval;
+}
 }

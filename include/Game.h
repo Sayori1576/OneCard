@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "Card.h"
 #include "GmInoutputbase.h"
+namespace Onecard
+{
 class Game //게임 클래스
 {
 public:
@@ -19,3 +21,4 @@ private:
 	std::vector<std::pair<std::string, int>> winlist;
 	void printranks();
 };
+}
