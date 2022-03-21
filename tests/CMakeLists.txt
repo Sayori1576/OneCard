@@ -1,0 +1,5 @@
+include(GoogleTest)
+include_directories(${CMAKE_SOURCE_DIR}/include)
+add_executable(Onecard_test GlCardtest.cpp)
+target_link_libraries(Onecard_test PRIVATE gtest gtest_main gmock Onecard_lib)
+gtest_discover_tests(Onecard_test)

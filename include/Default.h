@@ -16,40 +16,40 @@
 #include <thread>
 #include <chrono>
 #include <string_view>
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 namespace Default
 {
-inline void cinnum()
-{
+	inline void cinnum()
+	{
 
-	cin.clear();
+		cin.clear();
 
-	cin.ignore(INT_MAX, '\n');
+		cin.ignore(INT_MAX, '\n');
 
-	cout << "잘못된 값을 입력하셨습니다. 숫자만 입력해주세요.\n";
-}
+		cout << "잘못된 값을 입력하셨습니다. 숫자만 입력해주세요.\n";
+	}
 #define randomize() srand((unsigned)time(NULL))
 #define random(n) (rand() % (n))
-inline void Sleep(clock_t milliseconds)
-{
-std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
-}
-const int sleeptime=1000;
+	inline void Sleep(clock_t milliseconds)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
+	}
+	const int sleeptime = 1000;
 #ifdef _WIN32
 
-// 화면을 모두 지운다.
-inline void clrscr()
-{
-	system("cls");
-}
+	// 화면을 모두 지운다.
+	inline void clrscr()
+	{
+		system("cls");
+	}
 
 #else
-inline void clrscr()
-{
-	system("clear");
-}
+	inline void clrscr()
+	{
+		system("clear");
+	}
 
 #endif
 }
