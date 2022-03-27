@@ -10,6 +10,6 @@ namespace Onecard
         void Addcard();
     private:
         std::vector<Card> cardlist;
-        std::vector<Card> usecard;
+        std::stack<Card> usecard;
     };
 };
