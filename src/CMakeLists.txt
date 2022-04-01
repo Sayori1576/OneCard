@@ -3,6 +3,7 @@ set(SRCS  main.cpp Card.cpp Game.cpp Player.cpp GlCard.cpp Nstatus.cpp Score.cpp
 #add_executable(Onecard ${SRCS})
 add_library(OneCard_lib Card.cpp GlCard.cpp)
 set(CMAKE_CXX_STANDARD 20)
+target_link_libraries(OneCard_lib effolkronium_random)
 #target_compile_options(OneCard_lib PUBLIC -Wall -Werror)
 target_compile_options(OneCard_lib PUBLIC -Wall -Werror)
 set(CMAKE_CXX_FLAGS_DEBUG "-g")

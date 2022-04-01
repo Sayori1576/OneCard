@@ -5,6 +5,6 @@ include(CTest)
 enable_testing()
 add_subdirectory(src)
 add_subdirectory(tests)
-
+add_subdirectory(random)
 include(CPack)
 #install(TARGETS Onecard RUNTIME DESTINATION bin)

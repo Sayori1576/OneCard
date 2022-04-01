@@ -3,16 +3,16 @@
 #include "Card.h"
 namespace Onecard
 {
-    void defaultsetting(Card &cd);
+    void defaultsetting(Card &cd,int plsize);
     class GlCard
     {
     public:
-        GlCard(std::function<void(Card &)> fn=defaultsetting)
+        GlCard(int plsize,std::function<void(Card &,int)> fn=defaultsetting)
         {
             init();
             for (auto &x : cardlist)
             {
-                fn(x);
+                fn(x,plsize);
             }
         }
         Card getrandomcard();

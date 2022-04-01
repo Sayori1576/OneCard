@@ -75,18 +75,18 @@ namespace Onecard
         {
             cd.type = tp::ONEMORE;
         }
-        if(cd.kind==kn::JOCKER)
+        if (cd.kind == kn::JOCKER)
         {
-            cd.type==tp::ATTACK;
-            if(cd.num==1)
+            cd.type = tp::ATTACK;
+            if (cd.num == 1)
             {
-                cd.attackval=5;
-                cd.importance=4;
+                cd.attackval = 5;
+                cd.importance = 4;
             }
-            else if(cd.num==2)
+            else if (cd.num == 2)
             {
-                cd.attackval=7;
-                cd.importance=5;
+                cd.attackval = 7;
+                cd.importance = 5;
             }
         }
     }

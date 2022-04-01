@@ -17,11 +17,22 @@
 #include <chrono>
 #include <string_view>
 #include <stack>
+#include "effolkronium/random.hpp"
+using Random = effolkronium::random_static;
 using std::cin;
 using std::cout;
 using std::endl;
 namespace Default
 {
+	template<typename T,typename U>
+	decltype(auto) random(T from, U to)
+	{
+		#ifdef DEBUG
+		return 0;
+		#else
+		return Random::get(from,to);
+		#endif
+	}
 	inline void cinnum()
 	{
 
