@@ -1,10 +1,28 @@
 #include "GlCard.h"
 namespace Onecard
 {
-    /* Card GlCard::getrandomcard()
-     {
+    Card GlCard::getrandomcard()
+    {
+        if (cardlist.size() <= 0)
+        {
+            Card temp = usecard.top();
+            if (!usecard.empty())
+            {
+                cardlist.push_back(usecard.top());
+                usecard.pop();
+            }
+            else
+            {
+                usecard.push(temp);
+                throw std::runtime_error("카드 없음");
+            }
+            usecard.push(temp);
+        }
 
-     }*/
+        auto temp = *(cardlist.end() - 1);
+        cardlist.erase(cardlist.end() - 1);
+        return temp;
+    }
     void GlCard::init()
     {
         for (int i = 0; i <= 3; i++)
@@ -18,6 +36,10 @@ namespace Onecard
         }
         cardlist.push_back(Card{kn::JOCKER, 1});
         cardlist.push_back(Card{kn::JOCKER, 2});
+    }
+    void GlCard::addcard(const Card &c)
+    {
+        usecard.push(c);
     }
     void defaultsetting(Card &cd, int plsize)
     {
@@ -43,21 +65,21 @@ namespace Onecard
         }
         else if (cd.num == 3)
         {
-            cd.type = tp::DEFENSE;
+            
         }
         else if (cd.num == 7)
         {
-            cd.type = tp::CCHANGE;
+            
         }
         else if (cd.num == 11)
         {
             if (plsize < 3)
             {
-                cd.type = tp::ONEMORE;
+               
             }
             else
             {
-                cd.type = tp::JUMP;
+                
             }
         }
         else if (cd.num == 12)

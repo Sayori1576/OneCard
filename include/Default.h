@@ -17,6 +17,7 @@
 #include <chrono>
 #include <string_view>
 #include <stack>
+#include <stdexcept>
 #include "effolkronium/random.hpp"
 using Random = effolkronium::random_static;
 using std::cin;
@@ -27,7 +28,7 @@ namespace Default
 	template<typename T,typename U>
 	decltype(auto) random(T from, U to)
 	{
-		#ifdef DEBUG
+		#ifdef ONECARD_DEBUG
 		return 0;
 		#else
 		return Random::get(from,to);

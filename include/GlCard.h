@@ -14,9 +14,14 @@ namespace Onecard
             {
                 fn(x,plsize);
             }
+            #ifndef ONECARD_DEBUG
+            auto engine = std::default_random_engine{};
+            std::shuffle(cardlist.begin(),cardlist.end(),engine);
+            #endif
+
         }
         Card getrandomcard();
-        void Addcard();
+        void addcard(const Card& c);
         void init();
         decltype(auto) getcardlistsize() const
         {
